@@ -15,6 +15,6 @@ Completed:
  * Wrote the problem statement. Playing a Table Top game is rather manual so I would like to automate some of the processes that are involved in playing the game.
  * Started documenting the project plan. project being a White Wolf Tabletop Game interface.
  * Began listing technologies and how they fit in this project
- ** Standard technologies that the class uses.
- ** A soon to be known web chat web service.
+ * Standard technologies that the class uses.
+ * A soon to be known web chat web service.
 
