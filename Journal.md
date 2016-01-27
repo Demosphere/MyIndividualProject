@@ -6,7 +6,7 @@ Document project progress, the development process, accomplishments, snags, and 
 
 ### Week 1
 
-1/18/2016 
+1/27/2016 
 
 Completed:
  * Chose a project goal. Going to go with a White Wolf Tabletop Game Interface
