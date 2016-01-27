@@ -17,4 +17,5 @@ Completed:
  * Began listing technologies and how they fit in this project
  * Standard technologies that the class uses.
  * A soon to be known web chat web service.
+ * Need to get back in the habit of doing all of my HW on Sunday mornings instead of trying to get it done before class starts.
 
