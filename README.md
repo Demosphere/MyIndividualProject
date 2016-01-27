@@ -1,5 +1,5 @@
 # MyIndividualProject
-This repository will serve as an example for the Spring 2016 Enterprise Java Class.
+This repository will serve as the main repository for my individual enterprise Java project.
 
 Problem Statement
 
