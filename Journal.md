@@ -20,3 +20,5 @@ Completed:
  * Need to get back in the habit of doing all of my HW on Sunday mornings instead of trying to get it done before class starts.
 
 I know what I want to do. Something that will help some friends and I play a tabletop rpg that we play and have played together for years. I need to determine a scope and figure out how much of the games mechanics that I would like to automate.
+
+Again, I need to get back into the habit of doing my HW on Sunday mornings so things actually get all of the way done before class.
