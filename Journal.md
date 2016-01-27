@@ -9,10 +9,12 @@ Document project progress, the development process, accomplishments, snags, and 
 1/18/2016 
 
 Completed:
- * Chose a project goal
+ * Chose a project goal. Going to go with a White Wolf Tabletop Game Interface
  * Reviewed SkinnySki.com 
  * Created this repository 
- * Wrote the problem statement
- * Started documenting the project plan
+ * Wrote the problem statement. Playing a Table Top game is rather manual so I would like to automate some of the processes that are involved in playing the game.
+ * Started documenting the project plan. project being a White Wolf Tabletop Game interface.
  * Began listing technologies and how they fit in this project
+ ** Standard technologies that the class uses.
+ ** A soon to be known web chat web service.
 
