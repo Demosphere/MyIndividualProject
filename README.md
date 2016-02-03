@@ -7,6 +7,7 @@ For the last 8 years that I have played the White Wolf Tabletop game I have done
 
 Screenshots from WW-Interface:
 
+[sample_image_concept](https://github.com/Demosphere/MyIndividualProject/blob/master/images/sample_design.png)
 
 Security/Authentication
 - Security:
