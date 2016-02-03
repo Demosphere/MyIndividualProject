@@ -7,24 +7,26 @@ For the last 8 years that I have played the White Wolf Tabletop game I have done
 
 Screenshots from WW-Interface:
 
-?
 
 Security/Authentication
-- Admin role: create/read/update/delete of all data
-- User role: make and update character sheets
-- Database (MySQL and Hibernate)
-- Store users and roles
-- Stores character information
-- Stores Game information
-- Web Services or APIs
-- Yet to be known chat web service
-- Bootstrap
+- Security:
+  - Admin role: create/read/update/delete of all data
+  - User role: make and update character sheets
+- Technolgies:
+  - Database (MySQL and Hibernate)
+    - Store users and roles
+    - Stores character information
+    - Stores Game information
+  - Web Services or APIs
+     - Yet to be known chat web service to facilitate groups of people seeing each others character information and dice rolls.
+     - Random number generator API to simulate the dice rolling for the application. 
+  - Bootstrap
 - Logging
-- Configurable logging using Log4J. In production, only errors will normally be logged, but logging at a debug level can be turned on to facilitate trouble-shooting.
-- Site and database hosted on OpenShift
-- Jenkins for Continuous Integration
+  zsd- Configurable logging using Log4J. In production, only errors will normally be logged, but logging at a debug level can be turned on to facilitate trouble-shooting.
+  - Site and database hosted on OpenShift
+  - Jenkins for Continuous Integration
 - Unit Testing
-- JUnit tests to achieve 80% code coverage
+  - JUnit tests to achieve 80% code coverage
 
 Independent Research Topic
 TBD
