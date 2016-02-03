@@ -18,6 +18,7 @@ Security/Authentication
     - Store users and roles
     - Stores character information
     - Stores Game information
+    - See database pyhsical structure diagram below
   - Web Services or APIs
      - Yet to be known chat web service to facilitate groups of people seeing each others character information and dice rolls.
      - Random number generator API to simulate the dice rolling for the application. 
@@ -36,3 +37,35 @@ Design
 Application Flow - link coming soon
 Screen Design - link coming soon
 Database Design - link coming soon
+- Database Sctructure:
+  - REGISTRATIONKEYS
+  - USER
+    - USERRIGHTS
+    - USERINFO
+  - GAME
+    - SESSIONS/LOGS (FK USER, GAMEKEY, CHARACTERKEY, SEQ_NR)
+    - DICEROLLS (FK DESCMECHANICS)
+    - CHARACTERKEY (FK USER)
+      - DEMOGRPHICS (PK SEQ_CHARACTER)
+      - ATTRIBUTES (PK SEQ_CHARACTER)
+      - ABILITIES (PK SEQ_CHARACTER)
+      - WILLPOWERTRACK (PK SEQ_CHARACTER)
+      - BLOODTRACK (PK SEQ_CHARACTER)
+      - HUMANITYTRACK (PK SEQ_CHARACTER)
+      - HEALTHTRACK (PK SEQ_CHARACTER)
+      - VIRTUES (PK SEQ_CHARACTER)
+      - BACKGROUNDS (PK SEQ_CHARACTER)
+      - DISCIPLINES (PK SEQ_CHARACTER)
+      - RITUALS (PK SEQ_CHARACTER)
+      - BACKGROUNDS (PK SEQ_CHARACTER)
+    - DESCRULES (FK GAMEKEY)
+      - DESCMECHANICS (FK GAMEKEY)
+      - DESCDISCIPLINES (FK GAMEKEY)
+      - DESCRITUALS (FK GAMEKEY)
+      - DESCCLANS (FK GAMEKEY)
+      - DESCBACKGROUNDS (FK GAMEKEY)
+      - DESCNATUREANDDEMENOR (FK GAMEKEY)
+    - EQUIPEMENT (FK GAMEKEY)
+      - ARMOR (FK GAMEKEY)
+      - WEAPONS (FK GAMEKEY)
+      - SPECIAL (FK GAMEKEY)
