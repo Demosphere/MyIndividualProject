@@ -36,7 +36,8 @@ Design
 
 Application Flow - link coming soon
 Screen Design - link coming soon
-Database Design - link coming soon
+Database Design - 
+- I will probably need to add at least 5 or so more tables.
 - Database Sctructure:
   - REGISTRATIONKEYS
   - USER
