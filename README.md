@@ -7,12 +7,13 @@ For the last 8 years that I have played the White Wolf Tabletop game I have done
 
 - Scope Functionality:
   - User can have multiple characters
-  _ Character creation wizard
+  - Character creation wizard for making new characters
   - Save and load character details for a user
   - Reference game descriptions of character information on sheet
   - Display game mechanics
   - Role Dice based on character abilities
   - Have a chat service
+  - Must be built to accomodate other types of white wolf games, not just the game of Vampire.
 
 WW Vampire Character sheet:
 - [Vampire Character Sheet](http://sorwen.com/vampire/BairnAmbroseKane.jpg)
@@ -73,6 +74,7 @@ Database Design -
       - POWERS (PK SEQ_CHARACTER)
       - RITUALS (PK SEQ_CHARACTER)
       - BACKGROUNDS (PK SEQ_CHARACTER)
+      - EXPERIENCE
     - DESCRULES (FK GAMEKEY)
       - DESCMECHANICS (FK GAMEKEY)
       - DESCPOWERS (FK GAMEKEY)
@@ -80,6 +82,7 @@ Database Design -
       - DESCFACTIONS (FK GAMEKEY)
       - DESCBACKGROUNDS (FK GAMEKEY)
       - DESCNATUREANDDEMENOR (FK GAMEKEY)
+      - DESCEXPERIENCE (FK GAMEKEY)
     - EQUIPEMENT (FK GAMEKEY)
       - ARMOR (FK GAMEKEY)
       - WEAPONS (FK GAMEKEY)
