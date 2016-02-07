@@ -6,14 +6,34 @@ Problem Statement
 For the last 8 years that I have played the White Wolf Tabletop game I have done it all through a manualy process of rolling dice, writing on paper and keeping tedious on the side notes for my character sheets. The site that I will be creating will aid in the process of maintaining a character sheet, facilitate a session between players with a chat services that will be used to perform and log dice rolls. The charact sheet involes a wide array of variables that make up the fictional character come to life while you are playing the game. These are all liable to change throughout the session so they will have to be represented in a flexible database in order to react to changes. The added benifit of this site is that multiple people will be able to log in and then see each other dice rolls and chat and share character sheet information throughout the session.
 
 - Scope Functionality:
-  - User can have multiple characters
+  - User can have multiple characters that they can use.
   - Character creation wizard for making new characters
-  - Save and load character details for a user
-  - Reference game descriptions of character information on sheet
-  - Display game mechanics
-  - Role Dice based on character abilities
-  - Have a chat service
-  - Must be built to accomodate other types of white wolf games, not just the game of Vampire.
+    - Players will be able to allocate the initial faction, starting attribute, starting ability and Discipline scores dependant on the details they provide. I am not going to worry about forcing them to follow the specific games character creation limits in order to keep things open. A reference to character creation rules would be referenced though. 
+    - Only Primary Abilties will be intially avaiable to characters.
+  - Save and load character details for a user.
+  - Reference game descriptions of character information on sheet.
+  - Display game mechanics.
+    - Current damage ratings will be factored into dice rolling.
+      - This will be saved into the character sheet for the next time that it is loaded. 
+    - Players will be able to allocate "temporary" dots on their character sheets in order to facilitate "power" effects when they are activated.
+    - Players will be able to spend and track experience expenditure on their characters.
+    - Specific game functionality of Vampire might be a stretch. Specifically the "POOL" tracking systems of:
+      - Blood
+      - Humanity (Path Ratings)
+  - Players will be able to store specific notes to the characters that they might need or that the website can't support or are out of scope.
+  - Role Dice based on character abilities and/or powers.
+    - Only 10 sided dice will be supported since this is the only dice that the White Wolf Games use during play. 
+    - Dice rolling will be completely set by the player for simplicity. I do not want to create a rule engine to ensure that specific things are being used for specific actions. 
+    - 2 Checkboxes will be placed next to attribute and abilties in order to designate them the primary and secondary amounts to create the dice pool.
+    - Difficulty thresholds will be able to be set by the player.
+    - Aternatly the player can set the number of dice that they want to roll.
+    - Extended actions will be supported.
+    - Individual rolls of each dice will be displayed.
+    - Will be able to designate if re-rolling of 10's should occur. 
+    - Will be able to designate whether 1's subtract from the final result.
+    - Final result will be displayed to the player and they should have the option to deliver the roll to the chat service or not for the other players to see.
+  - Have a chat service that will allow players to chare information and dice rolls while playing the game.
+  - Application must be built to accomodate other types of white wolf games, not just the game of Vampire.
 
 WW Vampire Character sheet:
 - [Vampire Character Sheet](http://sorwen.com/vampire/BairnAmbroseKane.jpg)
