@@ -20,8 +20,11 @@ Security/Authentication
     - Stores Game information
     - See database pyhsical structure diagram below
   - Web Services or APIs
-     - Yet to be known chat web service to facilitate groups of people seeing each others character information and dice rolls.
-     - Random number generator API to simulate the dice rolling for the application. 
+     - Chat Web Service
+       - http://chatango.com/
+     - Dice Rolling Web Service
+       - Will handle random number generation of multiple dice rolls.
+       - http://gmh.xocomp.net/ws/rollgenerator/rollgenerator.asmx 
   - Bootstrap
 - Logging
   zsd- Configurable logging using Log4J. In production, only errors will normally be logged, but logging at a debug level can be turned on to facilitate trouble-shooting.
