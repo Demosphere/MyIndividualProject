@@ -56,6 +56,7 @@ Security/Authentication
      - Chat Web Service
        - http://chatango.com/
        - <script id="cid0020000115873999830" data-cfasync="false" async src="//st.chatango.com/js/gz/emb.js" style="width: 100%;height: 100%;">{"handle":"demospheregames","arch":"js","styles":{"a":"000000","b":100,"c":"FFFFFF","d":"FFFFFF","k":"000000","l":"000000","m":"000000","n":"FFFFFF","p":"10","q":"000000","r":100}}</script>
+       - IRC maybe ????
      - Dice Rolling Web Service
        - Will handle random number generation of multiple dice rolls.
        - http://gmh.xocomp.net/ws/rollgenerator/rollgenerator.asmx 
