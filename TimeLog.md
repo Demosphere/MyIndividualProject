@@ -10,7 +10,7 @@
 | 2/10/16 | read for class | 2 |   |  
 | 2/16/16 | Worked on Exercise 1, read for next class | 3.5 | had to re-creat the project like 3 times to get it to work, no idea why but it was frustrating. |
 | 2/17/16| worked on the weeks exercise, started putting together the database for the project | 3 |  |  
-| 2/23/16 | timelog | 3.1 |  Thinking of taking PTO next week to work on things because a implementation for work is going to taking all my brain power this week. Read for next class. |  
+| 2/23/16 | timelog.  Read for next class.  | 3.1 |  Thinking of taking PTO next week to work on things because a implementation for work is going to taking all my brain power this week.|  
 | |  |   |   |  
 | |  |   |   |  
 | |  |   |   |  
