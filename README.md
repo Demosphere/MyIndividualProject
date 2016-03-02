@@ -12,6 +12,7 @@ It is my hope that this reference document website can be used by me and other p
 Scope
 
 - Organize the information of the Vampire: The Masquarade table top roleplaying game in a dynamic database driven application that could support other games of the same type in the future.
+- Each reference will also include the psyhical location of the mechanic, rule or reference in the book it was taken from.
 - The following information will be cataloged in the game reference document
   - Character types:
     - Vampires
@@ -34,16 +35,16 @@ Scope
   - Role Playing Stats
     - A simple listing of those provided in the books.
     - This is in reference ot a Vampires Virtues
-  - Experience Charts
-    - Vampire Regular Experience
-    - Vampire Maturation Experience
-    - Ghoul Experience
+  - Experience Expenditure Charts
+    - Vampire Regular Experience costs
+    - Vampire Maturation Experience costs
+    - Ghoul Experience costs
   - Powers
     - Vampire Discilines
       - Will include listings for variant selections for powers of the same level.
       - Will include a selection of Rituals for Blood Magic
     - Vampire Combonation Diciplines
-  - Merits and Flaws
+  - Advantages
     - Merit Listing
     - Flaws Listing
   - Path
@@ -103,69 +104,50 @@ WW Vampire Character sheet:
 Screenshots from WW-Interface website:
 - [sample_image_concept](https://github.com/Demosphere/MyIndividualProject/blob/master/images/sample_design.png)
 
-Security/Authentication
-- Security:
-  - Admin role: create/read/update/delete of all data
-  - User role: make and update character sheets
 - Technolgies:
   - Database (MySQL and Hibernate)
     - Store users and roles
-    - Stores character information
     - Stores Game information
+      - All reference materials will be stored on various database tables.
     - See database pyhsical structure diagram below
-  - Web Services or APIs
-     - Chat Web Service
-       - http://chatango.com/
-       - <script id="cid0020000115873999830" data-cfasync="false" async src="//st.chatango.com/js/gz/emb.js" style="width: 100%;height: 100%;">{"handle":"demospheregames","arch":"js","styles":{"a":"000000","b":100,"c":"FFFFFF","d":"FFFFFF","k":"000000","l":"000000","m":"000000","n":"FFFFFF","p":"10","q":"000000","r":100}}</script>
-       - IRC maybe ????
-     - Dice Rolling Web Service
-       - Will handle random number generation of multiple dice rolls.
-       - http://gmh.xocomp.net/ws/rollgenerator/rollgenerator.asmx 
-  - Bootstrap
-- Logging
-  zsd- Configurable logging using Log4J. In production, only errors will normally be logged, but logging at a debug level can be turned on to facilitate trouble-shooting.
-  - Site and database hosted on OpenShift
-  - Jenkins for Continuous Integration
-- Unit Testing
-  - JUnit tests to achieve 80% code coverage
+  - Web Services or APIs:
+    - ? Email web service for an RSS feed for when the website receives updates and new materials.
+  - Bootstrap will be utilized for the basic structure and css files.
+  - Logging:
+    - Configurable logging using Log4J. 
+    - In production, only errors will normally be logged, but logging at a debug level can be turned on to facilitate trouble-shooting.
+  - Hosting:
+    - Site and database hosted on OpenShift
+  - Unit Testing
+    - JUnit tests to achieve at least 80% code coverage
 
-Independent Research Topic
-TBD
-Design
+Independent Research Topic:
+- Individual research topic will be Maven. This will not be integrated into the website however.
 
-Application Flow - link coming soon
-Screen Design - link coming soon
-
-Database Design - 
-- Database Sctructure:
-  - REGISTRATIONKEYS
+- Simple database structure provided below of parent child relationships.
   - USER
-    - USERRIGHTS
-    - USERINFO
   - GAME
-    - SESSIONS/LOGS (FK USER, GAMEKEY, CHARACTERKEY, SEQ_NR)
-    - DICEROLLS (FK DESCMECHANICS)
-    - CHARACTERKEY (FK USER)
-      - DEMOGRPHICS (PK SEQ_CHARACTER)
-      - ATTRIBUTES (PK SEQ_CHARACTER)
-      - ABILITIES (PK SEQ_CHARACTER)
-      - POOLTRACKING (PK SEQ_CHARACTER)
-      - HEALTHTRACK (PK SEQ_CHARACTER)
-      - VIRTUES (PK SEQ_CHARACTER)
-      - BACKGROUNDS (PK SEQ_CHARACTER)
-      - POWERS (PK SEQ_CHARACTER)
-      - RITUALS (PK SEQ_CHARACTER)
-      - BACKGROUNDS (PK SEQ_CHARACTER)
-      - EXPERIENCE
-    - DESCRULES (FK GAMEKEY)
-      - DESCMECHANICS (FK GAMEKEY)
-      - DESCPOWERS (FK GAMEKEY)
-      - DESCRITUALS (FK GAMEKEY)
-      - DESCFACTIONS (FK GAMEKEY)
-      - DESCBACKGROUNDS (FK GAMEKEY)
-      - DESCNATUREANDDEMENOR (FK GAMEKEY)
-      - DESCEXPERIENCE (FK GAMEKEY)
-    - EQUIPEMENT (FK GAMEKEY)
-      - ARMOR (FK GAMEKEY)
-      - WEAPONS (FK GAMEKEY)
-      - SPECIAL (FK GAMEKEY)
+    - CHARACTERTYPES
+      - CHARACTERDESCRIPTIONS
+    - FACTIONS
+      - FACTIONDESCRIPTIONS
+  - ABILTIES
+    - ABILITIESDESCRIPTIONS
+  - ATTRIBUTES
+    - ATTRIBUTESDESCRIPTIONS
+  - BACKGROUNDS
+    - BACKGROUNDDESCRIPTIONS
+  - NATUREANDDEMENOR
+    - NATUREANDDEMENORDESCRIPTIONS
+  - RPSTATS
+    - RPSTATSDESCRIPTIONS
+  - EXPERIENCE
+    - EXPERIENCEDESCRIPTIONS
+  - POWERS
+    - POWERSDESCRIPTIONS
+  - ADVANTAGES
+    - ADVANTAGESDESCRIPTIONS
+  - PATHS
+    - PATHSDESCRIPTIONS
+  - SYSTEMSANDDRAMA
+    - SYSTEMSANDDRAMADESCRIPTIONS
