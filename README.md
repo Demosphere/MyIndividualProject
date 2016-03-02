@@ -121,9 +121,6 @@ Screenshots from WW-Interface website:
   - Unit Testing
     - JUnit tests to achieve at least 80% code coverage
 
-Independent Research Topic:
-- Individual research topic will be Maven. This will not be integrated into the website however.
-
 - Simple database structure provided below of parent child relationships.
   - USER
   - GAME
@@ -151,3 +148,7 @@ Independent Research Topic:
     - PATHSDESCRIPTIONS
   - SYSTEMSANDDRAMA
     - SYSTEMSANDDRAMADESCRIPTIONS
+
+Independent Research Topic:
+- This will be done on large text datastorage, specifically on Blob and text datatypes in relation to storage on a database.
+- This will be implemented into my project as I have many columns which will require a large length.
