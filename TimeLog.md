@@ -11,6 +11,6 @@
 | 2/16/16 | Worked on Exercise 1, read for next class | 3.5 | had to re-creat the project like 3 times to get it to work, no idea why but it was frustrating. |
 | 2/17/16| worked on the weeks exercise, started putting together the database for the project | 3 |  |  
 | 2/23/16 | timelog.  Read for next class.  | 3.1 |  Thinking of taking PTO next week to work on things because a implementation for work is going to taking all my brain power this week.|  
-| |  |   |   |  
-| |  |   |   |  
-| |  |   |   |  
+| 3/2/2016 | Read for this weeks class  | 1  | I really like this tutorialpoints website you found! |  
+| 3/2/2016 | updated project readme to new scope / problem statement / technologies / individual project / database layout  | 1.5  | project is now geared towards being a reference document. |  
+| 3/2/2016 | Complete Hibernate and SQL DAO Exercise  | 3  | "String" -- > "string" .... 1 whole hour to fix .... :( |  
