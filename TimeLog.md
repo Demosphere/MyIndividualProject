@@ -14,3 +14,8 @@
 | 3/2/2016 | Read for this weeks class  | 1  | I really like this tutorialpoints website you found! |  
 | 3/2/2016 | updated project readme to new scope / problem statement / technologies / individual project / database layout  | 1.5  | project is now geared towards being a reference document. |  
 | 3/2/2016 | Complete Hibernate and SQL DAO Exercise  | 3  | "String" -- > "string" .... 1 whole hour to fix .... :( |  
+| 3/14/2016 | Added initial DAOs and basic database design. Got bootstrap kinda working. | 2.5 ||
+|||||
+|||||
+|||||
+|||||
