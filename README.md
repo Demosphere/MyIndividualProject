@@ -123,32 +123,30 @@ Screenshots from WW-Interface website:
 
 - Simple database structure provided below of parent child relationships.
   - USER
-  - GAME
-    - TABLELISTINGS
-      - CHARACTERTYPES
-        - CHARACTERDESCRIPTIONS
-      - FACTIONS
-        - FACTIONDESCRIPTIONS
-      - ABILTIES
-        - ABILITIESDESCRIPTIONS
-      - ATTRIBUTES
-        - ATTRIBUTESDESCRIPTIONS
-      - BACKGROUNDS
-        - BACKGROUNDDESCRIPTIONS
-      - NATUREANDDEMENOR
-        - NATUREANDDEMENORDESCRIPTIONS
-      - RPSTATS
-        - RPSTATSDESCRIPTIONS
-      - EXPERIENCE
-        - EXPERIENCEDESCRIPTIONS
-      - POWERS
-        - POWERSDESCRIPTIONS
-      - ADVANTAGES
-        - ADVANTAGESDESCRIPTIONS
-      - PATHS
-        - PATHSDESCRIPTIONS
-      - SYSTEMSANDDRAMA
-        - SYSTEMSANDDRAMADESCRIPTIONS
+  - USERROLES
+
+  - LEVEL1              
+  - Contains game information 
+  - ID, Name, Description
+  - IE, Game_ID = 1, Name = Vampire: The Masqurade, Description = A gothic horror dystopia game about vampires.
+
+  - LEVEL2            
+  - Child of Level 1
+  - Contains high level organization for reference categories in the game. 
+  - ID. Name, Description
+  - IE, Game_ID = 1, Listing_ID = 1, Name = Thaumaturgy, Description = Individual power sets that a Vampire can have.
+
+  - LEVEL3
+  - Child of Level 2
+  - Contains the sub-level category organization for a single reference category. 
+  - ID, Name, Description
+  - IE, Game_ID = 1, Listing_ID = 1, SubListing_ID = 1, Name = Path of Blood, Description = Blood magic that a vampire can learn.
+
+  - LEVEL4 
+    - Child of Level 3 
+    - Contains blob text information at the lowest level for the organizational category.
+    - ID, Name, Description, Version, Rating, RatingDescription,  Book, Page Number
+    - IE, Game_ID = 1, Listing_ID = 1, SubListing_ID = 1, Description_Listing_ID = 1, Version = 1,Rating = 1,  Rating Description = "Text about power", Book = Core, Page = ### 
 
 Independent Research Topic:
 - This will be done on large text datastorage, specifically on Blob and text datatypes in relation to storage on a database.
