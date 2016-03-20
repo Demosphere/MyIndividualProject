@@ -15,7 +15,7 @@
 | 3/2/2016 | updated project readme to new scope / problem statement / technologies / individual project / database layout  | 1.5  | project is now geared towards being a reference document. |  
 | 3/2/2016 | Complete Hibernate and SQL DAO Exercise  | 3  | "String" -- > "string" .... 1 whole hour to fix .... :( |  
 | 3/14/2016 | Added initial DAOs and basic database design. Got bootstrap kinda working. | 2.5 ||
-|||||
+|3/18/2016| Learned more about bootstrap, Javascript and how to dynamically create html objects with javascript. | 5 | This is gonna be a pain. I coulnd't find a good "expandsion box" object JQUERY Mobile had a good looking one but I couldn't get it to "enahnce" after the page had been loaded. Might have to stick with a sub-par looking Bootstrap version. |
 |||||
 |||||
 |||||
