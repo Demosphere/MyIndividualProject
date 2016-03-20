@@ -126,21 +126,21 @@ Screenshots from WW-Interface website:
   - USERROLES
 
   - LEVEL1              
-  - Contains game information 
-  - ID, Name, Description
-  - IE, Game_ID = 1, Name = Vampire: The Masqurade, Description = A gothic horror dystopia game about vampires.
+    - Contains game information 
+    - ID, Name, Description
+    - IE, Game_ID = 1, Name = Vampire: The Masqurade, Description = A gothic horror dystopia game about vampires.
 
   - LEVEL2            
-  - Child of Level 1
-  - Contains high level organization for reference categories in the game. 
-  - ID. Name, Description
-  - IE, Game_ID = 1, Listing_ID = 1, Name = Thaumaturgy, Description = Individual power sets that a Vampire can have.
+    - Child of Level 1
+    - Contains high level organization for reference categories in the game. 
+    - ID. Name, Description
+    - IE, Game_ID = 1, Listing_ID = 1, Name = Thaumaturgy, Description = Individual power sets that a Vampire can have.
 
   - LEVEL3
-  - Child of Level 2
-  - Contains the sub-level category organization for a single reference category. 
-  - ID, Name, Description
-  - IE, Game_ID = 1, Listing_ID = 1, SubListing_ID = 1, Name = Path of Blood, Description = Blood magic that a vampire can learn.
+    - Child of Level 2
+    - Contains the sub-level category organization for a single reference category. 
+    - ID, Name, Description
+    - IE, Game_ID = 1, Listing_ID = 1, SubListing_ID = 1, Name = Path of Blood, Description = Blood magic that a vampire can learn.
 
   - LEVEL4 
     - Child of Level 3 
