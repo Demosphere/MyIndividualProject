@@ -17,5 +17,5 @@
 | 3/14/2016 | Added initial DAOs and basic database design. Got bootstrap kinda working. | 2.5 ||
 |3/18/2016| Learned more about bootstrap, Javascript and how to dynamically create html objects with javascript. | 5 | This is gonna be a pain. I coulnd't find a good "expandsion box" object JQUERY Mobile had a good looking one but I couldn't get it to "enahnce" after the page had been loaded. Might have to stick with a sub-par looking Bootstrap version. |
 | 3/20/2016| Finished figuring out how I would have to scructure the dynamically generated javascript bootstrap collaspse html objects. Changed database again for a simple 4 table layout and updated persistence / entity / controllers. | 3 | I think that I cut a lot of busy work time out by combining the database tables into singular tables. |
-|||||
+|3/21/2016 | Worked on getting hibernate to work for all my tables so I can make the CRUD pages and start entering data. | 2 | |
 |||||
