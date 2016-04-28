@@ -1,3 +1,11 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: Michael
+  Date: 4/28/2016
+  Time: 12:16 PM
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <head>
 
@@ -55,9 +63,6 @@
 
                     <!-- Collapsible Content Static Content Start -->
                     <p>Here is an example of some content that I should be creating with Javascript</p>
-
-                    Link to a plunker with the angular that I put together to dynamically display my objects.
-                    http://plnkr.co/edit/4Pj6vSkndX3jBHNsupER?p=preview
 
                     <div class="panel-group">
                         <div class="panel panel-default">
