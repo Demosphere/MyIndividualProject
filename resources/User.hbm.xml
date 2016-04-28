@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="entity.User" table="users" schema="thecodex">
+        <meta attribute="class-description">
+            This class contains the User details.
+        </meta>
+
+        <!--Add id for the key -->
+        <id name="userName">
+            <column name="user_name" sql-type="string"/>
+        </id>
+        <!--Add a property for all other instance variables/columns-->
+        <property name="userPass" column="user_pass" type="string"/>
+
+    </class>
+</hibernate-mapping>

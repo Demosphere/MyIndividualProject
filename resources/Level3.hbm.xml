@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="entity.Level3" table="level3" schema="thecodex">
+        <meta attribute="class-description">
+            This class contains the Level Three details.
+        </meta>
+
+        <!--Add id for the key -->
+        <id name="levelThreeID">
+            <column name="Level_Three_ID" sql-type="int(11)"/>
+        </id>
+        <!--Add a property for all other instance variables/columns-->
+        <property name="levelTwoID" column="Level_Two_ID" type="int"/>
+        <property name="listingName" column="Listing_Name" type="string"/>
+        <property name="listingDescription" column="Listing_Description" type="string"/>
+        <property name="versionID" column="Version_ID" type="int"/>
+        <property name="bookName" column="Book_Name" type="string"/>
+        <property name="pageNumber" column="Page_Number" type="int"/>
+
+        <!-- Table RI -->
+        <set name="levelFour" cascade="all" lazy="true">
+            <key column="Level_Three_ID"/>
+            <one-to-many class="entity.Level4"/>
+        </set>
+    </class>
+</hibernate-mapping>
