@@ -17,6 +17,14 @@ public class Level3 {
     private Set<Level4> levelFour;
 
     public Level3() {
+        levelThreeID = 0;
+        levelTwoID = 0;
+        listingName = null;
+        listingDescription = null;
+        versionID = 0;
+        bookName = null;
+        pageNumber = 0;
+        levelFour = null;
     }
 
     public int getLevelThreeID() {

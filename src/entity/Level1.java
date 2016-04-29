@@ -16,6 +16,13 @@ public class Level1 {
     private Set<Level2> levelTwo;
 
     public Level1() {
+        levelOneID = 0;
+        listingName = null;
+        listingDescription = null;
+        versionID = 0;
+        bookName = null;
+        pageNumber = 0;
+        levelTwo = null;
     }
 
     public int getLevelOneID() {

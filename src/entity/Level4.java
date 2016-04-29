@@ -14,6 +14,13 @@ public class Level4 {
     int pageNumber;
 
     public Level4() {
+        levelFourID = 0;
+        levelThreeID = 0;
+        listingName = null;
+        listingDescription = null;
+        versionID = 0;
+        bookName = null;
+        pageNumber = 0;
     }
 
     public int getLevelFourID() {

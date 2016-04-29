@@ -18,7 +18,7 @@
             admin
         </property>
         <property name="connection.password">
-            Password
+            admin
         </property>
 
         <mapping resource="Level1.hbm.xml"/>
