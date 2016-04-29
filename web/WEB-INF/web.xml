@@ -5,8 +5,17 @@
          version="3.1">
 
     <welcome-file-list>
-        <welcome-file>http://localhost:8080/html.index.html</welcome-file>
+        <welcome-file>http://localhost:8080/html/index.html</welcome-file>
     </welcome-file-list>
+    <servlet>
+        <servlet-name>AddLevel</servlet-name>
+        <servlet-class>controller.AddLevel</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddLevel</servlet-name>
+        <url-pattern>/html/AddLevel</url-pattern>
+    </servlet-mapping>
+
     <!-- Protect everything within the "user" directory. -->
     <!--<security-constraint>-->
         <!--<web-resource-collection>-->

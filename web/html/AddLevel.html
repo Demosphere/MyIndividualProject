@@ -34,6 +34,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-route.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-resource.js"></script>
 
+    <!-- MODULES -->
+    <script src="myApp.js"></script>
+
 </head>
 
 <body ng-app="myApp">
@@ -137,8 +140,20 @@
                             <input class="form-control" placeholder="Enter text">
                         </div>
 
-                        <button type="submit" class="btn btn-default" data-ng-click="Ctrl.sendPost()">Submit Level</button>
-                        <button type="reset" class="btn btn-default">Reset Form</button>
+
+                        <button type="submit" class="btn btn-default" ng-click="Ctrl.sendGet()">Submit Level</button>
+                        <button type="reset" class="btn btn-default" ng-click="Ctrl.sendPost()">Reset Form</button>
+
+                        <button type="submit" class="btn btn-default" ng-click="Ctrl.getDataFromServer()">Get Data</button>
+
+                        <p>Whole String         : {{response}}</p>
+                        <p>Parsed String        : {{parsedData}}</p>
+                        <p>levelOneID           : {{levelOneID}}</p>
+                        <p>Listing Name         : {{listingName}}</p>
+                        <p>Listing Description  : {{listingDescription}}</p>
+                        <p>Version ID           : {{versionID}}</p>
+                        <p>Book Name            : {{bookName}}</p>
+                        <p>Page Number          : {{pageNumber}}</p>
 
                     </form>
 
@@ -158,9 +173,6 @@
 
 <!-- Bootstrap Core JavaScript -->
 <script src="../js/bootstrap.min.js"></script>
-
-<!-- MODULES -->
-<script src="myApp.js"></script>
 
 </body>
 
