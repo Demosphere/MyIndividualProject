@@ -70,7 +70,7 @@ public class Level1DAO {
             tx = session.beginTransaction();
             levelOneID = (Integer) session.save(levelOne);
             tx.commit();
-            log.info("Added person: " + levelOne + " with id of: " + levelOneID);
+            log.info("Added Level: " + levelOne + " with id of: " + levelOneID);
         } catch (HibernateException e) {
             if (tx!=null) tx.rollback();
             log.error(e);

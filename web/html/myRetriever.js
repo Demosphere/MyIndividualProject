@@ -1,5 +1,7 @@
 var app = angular.module('myRetriever',  ['ui.bootstrap']);
 
+app.filter('unsafe', function($sce) { return $sce.trustAsHtml; });
+
 app.controller('myRetrieverCtrl', ['$scope', '$http', function ($scope, $http) {
 
     this.getDataFromServer = function () {
