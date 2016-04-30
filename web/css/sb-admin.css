@@ -226,24 +226,24 @@ ul.alert-dropdown {
     color: #df8a13;
 }
 
-body {
-    margin: 0;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    line-height: 20px;
-    color: #333333;
-    background-color: #ffffff;
-}
+/*body {*/
+    /*margin: 0;*/
+    /*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+    /*font-size: 14px;*/
+    /*line-height: 20px;*/
+    /*color: #333333;*/
+    /*background-color: #ffffff;*/
+/*}*/
 
-a {
-    color: #0088cc;
-    text-decoration: none;
-}
+/*a {*/
+    /*color: #0088cc;*/
+    /*text-decoration: none;*/
+/*}*/
 
-a:hover, a:focus {
-    color: #005580;
-    text-decoration: underline;
-}
+/*a:hover, a:focus {*/
+    /*color: #005580;*/
+    /*text-decoration: underline;*/
+/*}*/
 
 .accordion {
     margin-bottom: 20px;
