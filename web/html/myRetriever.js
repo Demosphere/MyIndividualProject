@@ -11,6 +11,8 @@ app.controller('myRetrieverCtrl', ['$scope', '$http', function ($scope, $http) {
             var listings = angular.fromJson(response);
             $scope.parsedData = listings;
 
+            $scope.serverData = listings;
+
             $scope.levelOneID = listings.levelOneID;
             $scope.listingName = listings.listingName;
             $scope.listingDescription = listings.listingDescription;
