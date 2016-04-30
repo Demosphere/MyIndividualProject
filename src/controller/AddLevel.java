@@ -72,23 +72,5 @@ public class AddLevel extends HttpServlet {
             response.getOutputStream().flush();
         }
 
-//        Level1 level1 = new Level1();
-//        level1.setLevelOneID(1);
-//        level1.setListingName("Level 1 Listing Name");
-//        level1.setListingDescription("Level 1 Listing Description");
-//        level1.setBookName("Level 1 Book Name");
-//        level1.setPageNumber(1);
-//        level1.setVersionID(1);
-//
-////        response.setContentType("application/json");
-//        response.setContentType("text/plain");
-//        PrintWriter out = response.getWriter();
-//
-//        String json = new Gson().toJson(level1);
-//        out.println(json);
-//        out.close();
-//        log.info("{success : 'Yes'}");
-//        log.info(request.getReader());
-//        log.info(json.toString());
     }
 }
