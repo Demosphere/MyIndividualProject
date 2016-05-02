@@ -18,27 +18,19 @@ import java.util.List;
 import com.google.gson.Gson;
 import entity.Level1;
 import entity.Level2;
+import entity.Level3;
 import org.apache.log4j.Logger;
 import persistence.Level1DAO;
 import persistence.Level2DAO;
+import persistence.Level3DAO;
 
 /**
  * Created by Michael on 4/28/2016.
  */
-@WebServlet(name = "AddLevel", urlPatterns = {"/html/AddLevel/Two"})
-public class AddLevel extends HttpServlet {
+@WebServlet(name = "AddThirdLevel", urlPatterns = {"/html/AddLevel/Three"})
+public class AddThirdLevel extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private final Logger log = Logger.getLogger(this.getClass());
-
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String url = "/html/AddLevel.html";
-
-        log.info("1.0 got into servlet somehow ?");
-
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
-        dispatcher.forward(request, response);
-    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -57,16 +49,16 @@ public class AddLevel extends HttpServlet {
             }
             log.info("all the lines that have been read: " + sb);
 
-            Level2 levelTwo = gson.fromJson(sb.toString(), Level2.class);
+            Level3 levelThree = gson.fromJson(sb.toString(), Level3.class);
 
-            Level2DAO levelTwoDAO = new Level2DAO();
+            Level3DAO levelThreeDAO = new Level3DAO();
 
-            int result = levelTwoDAO.addLevel2(levelTwo);
+            int result = levelThreeDAO.addLevel3(levelThree);
 
-            response.getOutputStream().print(gson.toJson(levelTwo));
+            response.getOutputStream().print(gson.toJson(levelThree));
             response.getOutputStream().flush();
 
-            log.info(levelTwo.toString());
+            log.info(levelThree.toString());
             log.info("Result of attempt to add: " + result);
         } catch (Exception ex) {
             ex.printStackTrace();

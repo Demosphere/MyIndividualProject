@@ -44,19 +44,8 @@
 <div id="wrapper">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div ng-include="'navbar_header.html'"></div>
-
-        <!-- Top Menu Items -->
-        <div ng-include="'navbar_top.html'"></div>
-
-        <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-        <div ng-include="'navbar_sidebar.html'"></div>
-
-    </nav>
-
+    <div ng-include="'navbar_container.html'"></div>
+    <!-- ./Navigation -->
 
     <div id="page-wrapper">
 
@@ -66,29 +55,21 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">
-                        Add Level
+                        Add Child Level
+                        <small> - Tables level2, level3, and level4</small>
                     </h1>
-                    <ol class="breadcrumb">
-                        <li>
-                            <i class="fa fa-dashboard"></i> <a href="index.html">Home</a>
-                        </li>
-                        <li class="active">
-                            <i class="fa fa-file"></i> Add Level
-                        </li>
-                    </ol>
                 </div>
             </div>
             <!-- /.row -->
 
-            <div class="row" ng-controller="myCtrl as Ctrl">
+            <div class="row" ng-controller="myCtrl as Ctrl" ng-init="getDataFromServer()">
                 <div class="col-lg-12">
 
                     <form role="form">
 
                         <div class="form-group">
                             <label>Select Listing Table Level To Add:</label>
-                            <select class="form-control" ng-model="levelOfListing_FORM">
-                                <option value="One">1</option>
+                            <select class="form-control" ng-model="child.level" ng-init="child.level = 'Two'">
                                 <option value="Two">2</option>
                                 <option value="Three">3</option>
                                 <option value="Four">4</option>
@@ -96,72 +77,133 @@
                             <br>
                         </div>
 
-                        <div class="form-group" ng-show="levelOfListing_FORM == 'Two' || levelOfListing_FORM == 'Three' || levelOfListing_FORM == 'Four'">
-                            <label> What is the Parent of the Listing:</label>
-                            <select class="form-control" ng-model="parentOfListing_FORM">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
+                        <div class="form-group"
+                             ng-show="child.level == 'Two'">
+                            <label> Table Level1 Parent:</label>
+                            <select class="form-control" ng-model="child.parent">
+                                <option ng-repeat="level1 in serverData"
+                                        value="{{level1.levelOneID}}">
+                                    {{level1.levelOneID}} - {{level1.listingName}}
+                                </option>
                             </select>
+                        </div>
+
+                        <div class="form-group" ng-show="child.level == 'Three'">
+                            <label> Table Level2 Parent Tree:</label>
+                            <ol ng-repeat="level1 in serverData" ng-show="level1.levelTwo.length">Branch: {{level1.listingName}}:
+                            <select class="form-control" ng-model="child.parent">
+                                <option ng-repeat="levelTwo in level1.levelTwo" value="{{levelTwo.levelTwoID}}">
+                                    {{levelTwo.levelTwoID}} - {{levelTwo.listingName}}
+                                </option>
+                            </select>
+                            </ol>
+                        </div>
+
+                        <div class="form-group" ng-show="child.level == 'Four'">
+                            <label> Table Level3 Parent Tree:</label>
+                            <ol ng-repeat="level1 in serverData" ng-show="level1.levelTwo.length">Branch: {{level1.listingName}}:
+                                <ol ng-repeat="level2 in level1.levelTwo" ng-show="level2.levelThree.length">Branch: {{level2.listingName}}:
+                                <select class="form-control" ng-model="child.parent">
+                                    <option ng-repeat="levelThree in level2.levelThree" value="{{levelThree.levelTwoID}}">
+                                        {{levelThree.levelTwoID}} - {{levelThree.listingName}}
+                                    </option>
+                                </select>
+                                </ol>
+                            </ol>
                         </div>
 
                         <div class="form-group">
                             <br>
-                            <input id="yesChildren" type="radio" name="children" ng-model="children" value="Yes">
+                            <input id="yesChildren" type="radio" name="children" ng-model="children" value="True"
+                                   ng-checked="'True'" ng-init="children = 'True'">
                             <label for="yesChildren"> - Listing has Children</label>
                             <br>
-                            <input id="noChildren" type="radio" name="children" ng-model="children" value="No">
+                            <input id="noChildren" type="radio" name="children" ng-model="children" value="False">
                             <label for="noChildren"> - Listing Does not have Children</label>
                         </div>
 
                         <div class="form-group">
                             <label>Name of Listing: </label>
-                            <input class="form-control" ng-model="listingName_FORM">
+                            <input class="form-control" ng-model="child.name">
                             <br>
                         </div>
 
-                        <div class="form-group" ng-show="children == 'No'">
+                        <div class="form-group" ng-show="children == 'False'">
                             <label>Description of Listing: </label>
-                            <textarea class="form-control" rows="10" ng-model="listingDesctipion_FORM"></textarea>
+                            <textarea class="form-control" rows="10" ng-model="child.description"></textarea>
                             <br>
                         </div>
 
-                        <div class="form-group" ng-show="children == 'No'">
+                        <div class="form-group" ng-show="children == 'False'">
                             <label>Book Listing Is Location In: </label>
-                            <input class="form-control" ng-model="listingBookname_FORM">
+                            <input class="form-control" ng-model="child.bookName">
                             <br>
                         </div>
 
-                        <div class="form-group" ng-show="children == 'No'">
+                        <div class="form-group" ng-show="children == 'False'">
                             <label>Page Number Listing Is Located At: </label>
-                            <input class="form-control" ng-model="listingPageNumber_FORM">
+                            <input class="form-control" ng-model="child.pageNumber">
                             <br>
                         </div>
 
+                        <blockquote ng-show="children == 'True'">
+                            <span ng-show="child.level == 'Two'">{'levelTwoID' :  0
+                            <br> 'levelOneID': , {{child.parent}} </span>
 
-                        <button type="submit" class="btn btn-default" ng-click="Ctrl.sendPost()">Submit Level</button>
+                            <span ng-show="child.level == 'Three'">{'levelThreeID' :  0
+                            <br> 'levelTwoID': , {{child.parent}} </span>
+
+                            <span ng-show="child.level == 'Four'">{'levelFourID' :  0
+                            <br> 'levelThreeID': , {{child.parent}} </span>
+
+                            <br> 'listingName': '{{child.name}}',
+                            <br> 'listingDescription': '',
+                            <br> 'versionID': 0,
+                            <br> 'bookName': '',
+                            <span ng-show="child.level == 'Two' || child.level == 'Three'"><br> 'pageNumber': 0,</span>
+                            <span ng-show="child.level == 'Four'"><br> 'pageNumber': 0</span>
+                            <span ng-show="child.level == 'Two'"><br> 'levelTwo' : []</span>
+                            <span ng-show="child.level == 'Three'"><br> 'levelFour' : []</span>
+                            <br>}
+                        </blockquote>
+                        <blockquote ng-show="children == 'False'">
+                            <span ng-show="child.level == 'Two'">{'levelTwoID' :  0
+                            <br> 'levelOneID': , {{child.parent}} </span>
+
+                            <span ng-show="child.level == 'Three'">{'levelThreeID' :  0
+                            <br> 'levelTwoID': , {{child.parent}} </span>
+
+                            <span ng-show="child.level == 'Four'">{'levelFourID' :  0
+                            <br> 'levelThreeID': , {{child.parent}} </span>
+
+                            <br> 'listingName': '{{child.name}}',
+                            <br> 'listingDescription': '{{child.description}}',
+                            <br> 'versionID': 0,
+                            <br> 'bookName': '{{child.bookName}}',
+                            <span ng-show="child.level == 'Two' || child.level == 'Three'"><br> 'pageNumber': {{child.pageNumber}},</span>
+                            <span ng-show="child.level == 'Four'"><br> 'pageNumber': {{child.pageNumber}}</span>
+                            <span ng-show="child.level == 'Two'"><br> 'levelTwo' : []</span>
+                            <span ng-show="child.level == 'Three'"><br> 'levelFour' : []</span>
+                            <br>}
+                        </blockquote>
+
+                        <button type="submit" class="btn btn-default" ng-click="sendLevelTwo()"
+                                ng-show="child.level == 'Two'">Submit Level 2
+                        </button>
+                        <button type="submit" class="btn btn-default" ng-click="sendLevelThree()"
+                                ng-show="child.level == 'Three'">Submit Level 3
+                        </button>
+                        <button type="submit" class="btn btn-default" ng-click="sendLevelFour()"
+                                ng-show="child.level == 'Four'">Submit Level 4
+                        </button>
                         <br>
                         <br>
-                        <button type="reset" class="btn btn-default" ng-click="Ctrl.resetForm()">Reset Form</button>
+                        <button type="reset" class="btn btn-default" ng-click="resetForm()">Reset Form
+                        </button>
                         <br>
-                        <br>
-                        <p>
-                            <label>Sample Button: </label>
-                            <button type="submit" class="btn btn-default" ng-click="Ctrl.getDataFromServer()">Get Data
-                            </button>
-                        </p>
                         <br>
 
                         <p>Whole String : {{response}}</p>
-                        <p>Parsed String : {{parsedData}}</p>
-                        <p>levelOneID : {{levelOneID}}</p>
-                        <p>Listing Name : {{listingName}}</p>
-                        <p>Listing Description : {{listingDescription}}</p>
-                        <p>Version ID : {{versionID}}</p>
-                        <p>Book Name : {{bookName}}</p>
-                        <p>Page Number : {{pageNumber}}</p>
 
                     </form>
 

@@ -4,8 +4,8 @@ app.filter('unsafe', function($sce) { return $sce.trustAsHtml; });
 
 app.controller('myRetrieverCtrl', ['$scope', '$http', function ($scope, $http) {
 
-    this.getDataFromServer = function () {
-
+    $scope.getDataFromServer = function () {
+        alert("I am Retrieving data!");
         $http({
             method: 'GET',
             url: 'http://localhost:8080/html/index'

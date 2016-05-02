@@ -79,32 +79,32 @@
 
                         <div class="form-group">
                             <label>Name of Listing: </label>
-                            <input class="form-control" type="text" ng-model="CreatorCtrl.rootLevel.name">
+                            <input class="form-control" type="text" ng-model="rootLevel.name">
                             <br>
                         </div>
 
                         <div class="form-group" ng-show="children == 'False'">
                             <label>Description of Listing: </label>
-                            <textarea class="form-control" rows="10" ng-model="CreatorCtrl.rootLevel.description"></textarea>
+                            <textarea class="form-control" rows="10" ng-model="rootLevel.description"></textarea>
                             <br>
                         </div>
 
                         <div class="form-group" ng-show="children == 'False'">
                             <label>Book Listing Is Location In: </label>
-                            <input class="form-control" ng-model="CreatorCtrl.rootLevel.bookName">
+                            <input class="form-control" ng-model="rootLevel.bookName">
                             <br>
                         </div>
 
                         <div class="form-group" ng-show="children == 'False'">
                             <label>Page Number Listing Is Located At: </label>
-                            <input class="form-control" type="number" ng-model="CreatorCtrl.rootLevel.pageNumber">
+                            <input class="form-control" type="number" ng-model="rootLevel.pageNumber">
                             <br>
                         </div>
 
                         <p> Live Preview of JSON Object that will be sent, verify before submitting.
                         <blockquote ng-show="children == 'True'">
                             {'levelOneID': 0,
-                            <br> 'listingName': '{{CreatorCtrl.rootLevel.name}}',
+                            <br> 'listingName': '{{rootLevel.name}}',
                             <br> 'listingDescription': '',
                             <br> 'versionID': 0,
                             <br> 'bookName': '',
@@ -114,17 +114,17 @@
                         </blockquote>
                         <blockquote ng-show="children == 'False'">
                             {'levelOneID': 0,
-                            <br> 'listingName': '{{CreatorCtrl.rootLevel.name}}',
-                            <br> 'listingDescription': '{{CreatorCtrl.rootLevel.description}}',
+                            <br> 'listingName': '{{rootLevel.name}}',
+                            <br> 'listingDescription': '{{rootLevel.description}}',
                             <br> 'versionID': 0,
-                            <br> 'bookName': '{{CreatorCtrl.rootLevel.bookName}}',
-                            <br> 'pageNumber': {{CreatorCtrl.rootLevel.pageNumber}},
+                            <br> 'bookName': '{{rootLevel.bookName}}',
+                            <br> 'pageNumber': {{rootLevel.pageNumber}},
                             <br> 'levelTwo' : []
                             <br>}
                         </blockquote>
                         </p>
 
-                        <button type="submit" class="btn btn-default" ng-click="CreatorCtrl.createRootLevel(children)">
+                        <button type="submit" class="btn btn-default" ng-click="createRootLevel()">
                             Submit Level
                         </button>
                         <br>

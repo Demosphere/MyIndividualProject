@@ -9,21 +9,39 @@
     </welcome-file-list>
 
     <servlet>
-        <servlet-name>AddLevel</servlet-name>
-        <servlet-class>controller.AddLevel</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>AddLevel</servlet-name>
-        <url-pattern>/html/AddLevel</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
         <servlet-name>AddRootLevel</servlet-name>
         <servlet-class>controller.AddRootLevel</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AddRootLevel</servlet-name>
         <url-pattern>/html/AddRootLevel</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AddLevel</servlet-name>
+        <servlet-class>controller.AddLevel</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddLevel</servlet-name>
+        <url-pattern>/html/AddLevel/Two</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AddThirdLevel</servlet-name>
+        <servlet-class>controller.AddThirdLevel</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddThirdLevel</servlet-name>
+        <url-pattern>/html/AddLevel/Three</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AddFourthLevel</servlet-name>
+        <servlet-class>controller.AddFourthLevel</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddFourthLevel</servlet-name>
+        <url-pattern>/html/AddLevel/Four</url-pattern>
     </servlet-mapping>
 
     <servlet>
