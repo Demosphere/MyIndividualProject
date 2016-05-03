@@ -25,6 +25,6 @@
 |4/29/16 | Individual project work, learned css, worked on displaying information and inserting into the database | 10 | |
 |4/30/16| Individual project work, can display and accept more data, worked on straightening some things out again and through issues with angular libraries not working | 6 ||
 |5/1/16| Individual project work, can now display and accept data for all levels of my tables | 7||
-|||||
+|5/2/16| Refactored project for efficiency and code reusability (needs more work), fixed bug with adding, started to work on deleting levels | 2.5 ||
 |||||
 |||||
