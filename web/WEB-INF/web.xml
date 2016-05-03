@@ -9,39 +9,39 @@
     </welcome-file-list>
 
     <servlet>
-        <servlet-name>AddRootLevel</servlet-name>
-        <servlet-class>controller.AddRootLevel</servlet-class>
+        <servlet-name>FirstLevel</servlet-name>
+        <servlet-class>controller.FirstLevel</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>AddRootLevel</servlet-name>
-        <url-pattern>/html/AddRootLevel</url-pattern>
+        <servlet-name>FirstLevel</servlet-name>
+        <url-pattern>/html/Level/One</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>AddSecondLevel</servlet-name>
-        <servlet-class>controller.AddSecondLevel</servlet-class>
+        <servlet-name>SecondLevel</servlet-name>
+        <servlet-class>controller.SecondLevel</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>AddSecondLevel</servlet-name>
-        <url-pattern>/html/AddLevel/Two</url-pattern>
+        <servlet-name>SecondLevel</servlet-name>
+        <url-pattern>/html/Level/Two</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>AddThirdLevel</servlet-name>
-        <servlet-class>controller.AddThirdLevel</servlet-class>
+        <servlet-name>ThirdLevel</servlet-name>
+        <servlet-class>controller.ThirdLevel</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>AddThirdLevel</servlet-name>
-        <url-pattern>/html/AddLevel/Three</url-pattern>
+        <servlet-name>ThirdLevel</servlet-name>
+        <url-pattern>/html/Level/Three</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>AddFourthLevel</servlet-name>
-        <servlet-class>controller.AddFourthLevel</servlet-class>
+        <servlet-name>FourthLevel</servlet-name>
+        <servlet-class>controller.FourthLevel</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>AddFourthLevel</servlet-name>
-        <url-pattern>/html/AddLevel/Four</url-pattern>
+        <servlet-name>FourthLevel</servlet-name>
+        <url-pattern>/html/Level/Four</url-pattern>
     </servlet-mapping>
 
     <servlet>

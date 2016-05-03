@@ -32,12 +32,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-route.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-resource.js"></script>
 
+    <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.3.0.js"></script>
+
     <!-- ANGULAR MODULES -->
-    <script src="../js/myApp.js"></script>
 
 </head>
 
-<body ng-app="myApp">
+<body ng-app="">
 
 <div id="wrapper">
 
@@ -53,8 +54,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">
-                        Add Child Level
-                        <small> - Tables level2, level3, and level4</small>
+                        Blank Page
+                        <small> - Subheading</small>
                     </h1>
                 </div>
             </div>
@@ -89,11 +90,11 @@
                         <div class="form-group" ng-show="child.level == 'Three'">
                             <label> Table Level2 Parent Tree:</label>
                             <ol ng-repeat="level1 in serverData" ng-show="level1.levelTwo.length">Branch: {{level1.listingName}}:
-                            <select class="form-control" ng-model="child.parent">
-                                <option ng-repeat="levelTwo in level1.levelTwo" value="{{levelTwo.levelTwoID}}">
-                                    {{levelTwo.levelTwoID}} - {{levelTwo.listingName}}
-                                </option>
-                            </select>
+                                <select class="form-control" ng-model="child.parent">
+                                    <option ng-repeat="levelTwo in level1.levelTwo" value="{{levelTwo.levelTwoID}}">
+                                        {{levelTwo.levelTwoID}} - {{levelTwo.listingName}}
+                                    </option>
+                                </select>
                             </ol>
                         </div>
 
@@ -101,11 +102,11 @@
                             <label> Table Level3 Parent Tree:</label>
                             <ol ng-repeat="level1 in serverData" ng-show="level1.levelTwo.length">Branch: {{level1.listingName}}:
                                 <ol ng-repeat="level2 in level1.levelTwo" ng-show="level2.levelThree.length">Branch: {{level2.listingName}}:
-                                <select class="form-control" ng-model="child.parent">
-                                    <option ng-repeat="levelThree in level2.levelThree" value="{{levelThree.levelThreeID}}">
-                                        {{levelThree.levelThreeID}} - {{levelThree.listingName}}
-                                    </option>
-                                </select>
+                                    <select class="form-control" ng-model="child.parent">
+                                        <option ng-repeat="levelThree in level2.levelThree" value="{{levelThree.levelTwoID}}">
+                                            {{levelThree.levelTwoID}} - {{levelThree.listingName}}
+                                        </option>
+                                    </select>
                                 </ol>
                             </ol>
                         </div>
@@ -207,6 +208,8 @@
 
                 </div>
             </div>
+            <!-- /.row -->
+
         </div>
         <!-- /.container-fluid -->
 

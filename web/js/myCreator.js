@@ -10,7 +10,7 @@ app.controller('myCreatorCtrl', ['$scope', '$http', function ($scope, $http) {
             alert($scope.rootLevel.name);
             $http({
                 method: 'POST',
-                url: 'http://localhost:8080/html/AddRootLevel',
+                url: 'http://localhost:8080/html/Level/One',
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                 data: {
                     'levelOneID': 0,
@@ -32,7 +32,7 @@ app.controller('myCreatorCtrl', ['$scope', '$http', function ($scope, $http) {
         } else {
             $http({
                 method: 'POST',
-                url: 'http://localhost:8080/html/AddRootLevel',
+                url: 'http://localhost:8080/html/Level/One',
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                 data: {
                     'levelOneID': 0,
@@ -61,40 +61,5 @@ app.controller('myCreatorCtrl', ['$scope', '$http', function ($scope, $http) {
         $scope.listingBookname_FORM = "";
         $scope.listingPageNumber_FORM = "";
     }
-
-    //this.getDataFromServer = function () {
-    //
-    //    $http({
-    //        method: 'POST',
-    //        url: 'http://localhost:8080/html/AddLevel',
-    //    }).success(function (response) {
-    //        var data = angular.fromJson(response);
-    //        $scope.parsedData = data;
-    //
-    //        $scope.levelOneID = data.levelOneID;
-    //        $scope.listingName = data.listingName;
-    //        $scope.listingDescription = data.listingDescription;
-    //        $scope.versionID = data.versionID;
-    //        $scope.bookName = data.bookName;
-    //        $scope.pageNumber = data.pageNumber;
-    //
-    //        $scope.response = response;
-    //
-    //        alert(response);
-    //    }).error(function (response) {
-    //        // called asynchronously if an error occurs or server returns response with an error status.
-    //    });
-    //
-    //};
-
-    //this.toggle_type_FORM = function (toggle) {
-    //    if (toggle = "Yes") {
-    //        $scope.toggle_FORM = true
-    //    } else {
-    //        $scope.toggle_FORM = false
-    //    }
-    //
-    //};
-
 
 }]);

@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin - Bootstrap Admin Template</title>
+    <title>TheCodex</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -28,13 +28,11 @@
     <![endif]-->
 
     <!-- Angular.JS Core JavaScript Framework -->
-    <!--<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>-->
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-resource.min.js"></script>-->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-route.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-resource.js"></script>
 
-    <!-- MODULES -->
+    <!-- ANGULAR MODULES -->
     <script src="../js/myApp.js"></script>
 
 </head>
@@ -44,18 +42,8 @@
 <div id="wrapper">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div ng-include="'navbar_header.html'"></div>
-
-        <!-- Top Menu Items -->
-        <div ng-include="'navbar_top.html'"></div>
-
-        <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-        <div ng-include="'navbar_sidebar.html'"></div>
-
-    </nav>
+    <div ng-include="'../html/templates/nav/navbar_container.html'"></div>
+    <!-- /.Navigation -->
 
         <div id="page-wrapper">
 
