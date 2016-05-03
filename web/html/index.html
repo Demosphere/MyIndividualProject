@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin - Bootstrap Admin Template</title>
+    <title>TheCodex</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../css/bootstrap.css" rel="stylesheet">
@@ -73,64 +73,23 @@
             <div class="row" ng-controller="myRetrieverCtrl as RetrieverCtrl" ng-init="getDataFromServer()">
                 <div class="col-lg-12">
 
-                    <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
-
                     <p>Link to a plunker with the angular that I put together to dynamically display my objects.</p>
                     <p>http://plnkr.co/edit/4Pj6vSkndX3jBHNsupER?p=preview</p>
 
-                    <p>Static Test of Accordion Display Pattern based on static JSON Object.</p>
                     <accordion close-others="false">
-                        <accordion-group heading="{{group.title}}" ng-repeat="group in groups">
-                            <ul>
-                                <accordion>
-                                    <accordion-group heading="{{item['item-title']}}" ng-repeat="item in group.items">
-                                        <ul>
-                                            <accordion>
-                                                <accordion-group heading="{{item['item-title']}}"
-                                                                 ng-repeat="item in item.items">
-                                                    <ul>
-                                                        <accordion>
-                                                            <accordion-group heading="{{item['item-title']}}"
-                                                                             ng-repeat="item in item.items">
-                                                                <ul>
-                                                                    <li ng-repeat="item in items">
-                                                                        {{item['item-title']}}
-                                                                    </li>
-                                                                </ul>
-                                                            </accordion-group>
-                                                        </accordion>
-                                                        <!-- /.accordion.level.four -->
-                                                    </ul>
-                                                </accordion-group>
-                                            </accordion>
-                                            <!-- /.accordion.level.three -->
-                                        </ul>
-                                    </accordion-group>
-                                </accordion>
-                                <!-- /.accordion.level.two -->
-                            </ul>
-                        </accordion-group>
-                    </accordion>
-                    <!-- /.accordion.level.one -->
-
-                    <br>
-                    <br>
-
-                    <p>Dynamic Test of Accordion Display Pattern Based on DataBase Fetch</p>
-                    <accordion close-others="false">
-                        <accordion-group heading="{{level1.levelOneID}} + {{level1.listingName}}" ng-repeat="level1 in serverData">
+                        <accordion-group heading="{{level1.levelOneID}} + {{level1.listingName}}" ng-repeat="level1 in serverData | orderBy : 'levelOneID' : -serverData" >
                             <p ng-bind-html="level1.listingDescription | unsafe"></p>
                             <ul>
                                 <accordion>
-                                    <accordion-group heading="{{level2.levelTwoID}} + {{level2.listingName}}"  ng-repeat="level2 in level1.levelTwo">
+                                    <accordion-group heading="{{level2.levelTwoID}} + {{level2.listingName}}"  ng-repeat="level2 in level1.levelTwo | orderBy : 'levelTwoID' : -level1.levelTwo">
                                         <p ng-bind-html="level2.listingDescription | unsafe"></p>
                                         <ul>
                                             <accordion>
-                                                <accordion-group heading="{{level3.levelThreeID}} + {{level3.listingName}}" ng-repeat="level3 in level2.levelThree">
+                                                <accordion-group heading="{{level3.levelThreeID}} + {{level3.listingName}}" ng-repeat="level3 in level2.levelThree | orderBy : 'levelThreeID' : -level2.levelThree">
                                                     <p ng-bind-html="level3.listingDescription | unsafe"></p>
                                                     <ul>
                                                         <accordion>
-                                                            <accordion-group heading="{{level4.levelFourID}} + {{level4.listingName}}" ng-repeat="level4 in level3.levelFour">
+                                                            <accordion-group heading="{{level4.levelFourID}} + {{level4.listingName}}" ng-repeat="level4 in level3.levelFour | orderBy : 'levelFourID' : -level3.levelFour">
                                                                 <p ng-bind-html="level4.listingDescription | unsafe"></p>
                                                             </accordion-group>
                                                         </accordion>
@@ -169,17 +128,6 @@
 <!-- Bootstrap Core JavaScript -->
 <script src="../js/bootstrap.min.js"></script>
 
-<!-- Menu Toggle Script -->
-<script>
-    var game_id = "0";
-    var listing_id = "0";
-    var sublisting_id = "0";
-    var description_id = "0";
-    $("#menu-toggle").click(function (e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-</script>
 </body>
 
 </html>

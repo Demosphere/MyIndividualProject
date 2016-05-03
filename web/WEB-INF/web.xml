@@ -18,11 +18,11 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>AddLevel</servlet-name>
-        <servlet-class>controller.AddLevel</servlet-class>
+        <servlet-name>AddSecondLevel</servlet-name>
+        <servlet-class>controller.AddSecondLevel</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>AddLevel</servlet-name>
+        <servlet-name>AddSecondLevel</servlet-name>
         <url-pattern>/html/AddLevel/Two</url-pattern>
     </servlet-mapping>
 

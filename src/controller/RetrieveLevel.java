@@ -30,16 +30,6 @@ public class RetrieveLevel extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        Level1 level1 = new Level1();
-//        level1.setLevelOneID(1);
-//        level1.setListingName("Level 1 Listing Name");
-//        level1.setListingDescription("Level 1 Listing Description");
-//        level1.setBookName("Level 1 Book Name");
-//        level1.setPageNumber(1);
-//        level1.setVersionID(1);
-
-//        response.setContentType("application/json");
-
         Level1DAO levelOneDAO = new Level1DAO();
         List levels = levelOneDAO.getAllLevelOne();
 
@@ -49,7 +39,6 @@ public class RetrieveLevel extends HttpServlet {
         String json = new Gson().toJson(levels);
         out.println(json);
         out.close();
-        log.info("{'success' : 'Yes'}");
         log.info(request.getReader());
         log.info(json.toString());
     }

@@ -25,8 +25,8 @@ import persistence.Level2DAO;
 /**
  * Created by Michael on 4/28/2016.
  */
-@WebServlet(name = "AddLevel", urlPatterns = {"/html/AddLevel/Two"})
-public class AddLevel extends HttpServlet {
+@WebServlet(name = "AddSecondLevel", urlPatterns = {"/html/AddsLevel/Two"})
+public class AddSecondLevel extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private final Logger log = Logger.getLogger(this.getClass());
 
@@ -42,8 +42,6 @@ public class AddLevel extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        log.info("{success : 'inside doPost()'}");
 
         response.setContentType("application/json");
         Gson gson = new Gson();
