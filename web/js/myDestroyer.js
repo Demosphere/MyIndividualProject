@@ -1,26 +1,24 @@
-var app = angular.module('myApp', []);
+var app = angular.module('myDestroyer', []);
 
 app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
 
     var baseURL = 'http://localhost:8080/html/';
-    $scope.child = {};
+    $scope.deleteLevel = {};
 
     // These Functions are duplicated because I can't figure out how to get the "data" variable to be set to an onject.
-    $scope.sendLevelTwo = function (route) {
-        if ($scope.children == "True") {
+    $scope.sendLevelOne = function () {
             $http({
-                method: 'POST',
-                url: baseURL + route +'/Two',
+                method: 'DELETE',
+                url: baseURL + 'Level/One',
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                 data: {
-                    'levelTwoID': 0,
-                    'levelOneID': $scope.child.parent,
-                    'listingName': $scope.child.name,
+                    'levelOneID': $scope.deleteLevel.levelOneID,
+                    'listingName': '',
                     'listingDescription': '',
                     'versionID': 0,
                     'bookName': '',
                     'pageNumber': 0,
-                    'levelThree': []
+                    'levelTwo': $scope.deleteLevel.levelTwo
                 }
             }).success(function (response) {
                 var data = angular.fromJson(response);
@@ -30,49 +28,22 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
                 alert(response);
                 // called asynchronously if an error occurs or server returns response with an error status.
             });
-        } else {
-            $http({
-                method: 'POST',
-                url: baseURL + route + '/Two',
-                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-                data: {
-                    'levelTwoID': 0,
-                    'levelOneID': $scope.child.parent,
-                    'listingName': $scope.child.name,
-                    'listingDescription': $scope.child.description,
-                    'versionID': 0,
-                    'bookName': $scope.child.bookName,
-                    'pageNumber': parseInt($scope.child.pageNumber),
-                    'levelThree': []
-                }
-            }).success(function (response) {
-                var data = angular.fromJson(response);
-                $scope.parsedData = data;
-                $scope.getDataFromServer();
-                alert(data);
-            }).error(function (response) {
-                alert(response);
-                // called asynchronously if an error occurs or server returns response with an error status.
-            });
-        }
     }
 
-    // These Functions are duplicated because I can't figure out how to get the "data" variable to be set to an onject.
-    $scope.sendLevelThree = function (route) {
-        if ($scope.children == "True") {
+    $scope.sendLevelTwo = function () {
             $http({
-                method: 'POST',
-                url: baseURL + route + '/Three',
+                method: 'DELETE',
+                url: baseURL + 'Level/Two',
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                 data: {
-                    'levelThreeID': 0,
-                    'levelTwoID': $scope.child.parent,
-                    'listingName': $scope.child.name,
+                    'levelTwoID': $scope.deleteLevel.levelTwoID,
+                    'levelOneID': $scope.deleteLevel.levelOneID,
+                    'listingName': '',
                     'listingDescription': '',
                     'versionID': 0,
                     'bookName': '',
                     'pageNumber': 0,
-                    'levelFour': []
+                    'levelThree': $scope.deleteLevel.levelThree
                 }
             }).success(function (response) {
                 var data = angular.fromJson(response);
@@ -82,46 +53,48 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
                 alert(response);
                 // called asynchronously if an error occurs or server returns response with an error status.
             });
-        } else {
-            $http({
-                method: 'POST',
-                url: baseURL + route + '/Three',
-                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-                data: {
-                    'levelThreeID': 0,
-                    'levelTwoID': $scope.child.parent,
-                    'listingName': $scope.child.name,
-                    'listingDescription': $scope.child.description,
-                    'versionID': 0,
-                    'bookName': $scope.child.bookName,
-                    'pageNumber': parseInt($scope.child.pageNumber),
-                    'levelFour': []
-                }
-            }).success(function (response) {
-                var data = angular.fromJson(response);
-                $scope.parsedData = data;
-                $scope.getDataFromServer();
-            }).error(function (response) {
-                alert(response);
-                // called asynchronously if an error occurs or server returns response with an error status.
-            });
-        }
     }
 
     // These Functions are duplicated because I can't figure out how to get the "data" variable to be set to an onject.
-    $scope.sendLevelFour = function (route) {
+    $scope.sendLevelThree = function () {
+            $http({
+                method: 'DELETE',
+                url: baseURL +  'Level/Three',
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                data: {
+                    'levelThreeID': $scope.deleteLevel.levelThreeID,
+                    'levelTwoID': $scope.deleteLevel.levelTwoID,
+                    'listingName': '',
+                    'listingDescription': '',
+                    'versionID': 0,
+                    'bookName': '',
+                    'pageNumber': 0,
+                    'levelFour': $scope.deleteLevel.levelFour
+                }
+            }).success(function (response) {
+                var data = angular.fromJson(response);
+                $scope.parsedData = data;
+                $scope.getDataFromServer();
+            }).error(function (response) {
+                alert(response);
+                // called asynchronously if an error occurs or server returns response with an error status.
+            });
+    }
+
+    // These Functions are duplicated because I can't figure out how to get the "data" variable to be set to an onject.
+    $scope.sendLevelFour = function () {
         $http({
-            method: 'POST',
-            url: baseURL + route + '/Four',
+            method: 'DELETE',
+            url: baseURL + 'Level/Four',
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
             data: {
-                'levelFourID': 0,
-                'levelThreeID': $scope.child.parent,
-                'listingName': $scope.child.name,
-                'listingDescription': $scope.child.description,
+                'levelFourID': $scope.deleteLevel.levelFourID,
+                'levelThreeID': $scope.deleteLevel.levelThreeID,
+                'listingName': '',
+                'listingDescription': '',
                 'versionID': 0,
-                'bookName': $scope.child.bookName,
-                'pageNumber': parseInt($scope.child.pageNumber)
+                'bookName': '',
+                'pageNumber': 0
             }
         }).success(function (response) {
             var data = angular.fromJson(response);
@@ -145,10 +118,14 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
 
     }
 
+    $scope.setDeleteLevel = function (inLevel) {
+        $scope.deleteLevel = angular.fromJson(inLevel);
+    }
+
     $scope.getDataFromServer = function () {
         $http({
             method: 'GET',
-            url: baseURL + 'html/index'
+            url: baseURL + '/index'
         }).success(function (response) {
             var listings = angular.fromJson(response);
             $scope.serverData = listings;

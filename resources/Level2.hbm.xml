@@ -14,7 +14,6 @@
             <column name="Level_Two_ID" sql-type="int(11)"/>
         </id>
         <!--Add a property for all other instance variables/columns-->
-        <property name="levelOneID" column="Level_One_ID" type="int"/>
         <property name="listingName" column="Listing_Name" type="string"/>
         <property name="listingDescription" column="Listing_Description" type="string"/>
         <property name="versionID" column="Version_ID" type="int"/>
@@ -22,6 +21,9 @@
         <property name="pageNumber" column="Page_Number" type="int"/>
 
         <!-- Table RI -->
+        <many-to-one name="levelOne" class="entity.Level1"
+                     column="Level_One_ID" />
+
         <set name="levelThree" cascade="all" lazy="true">
             <key column="Level_Two_ID"/>
             <one-to-many class="entity.Level3"/>

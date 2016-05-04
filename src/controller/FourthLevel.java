@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import entity.Level4;
 import org.apache.log4j.Logger;
 import persistence.Level4DAO;
@@ -26,7 +27,8 @@ public class FourthLevel extends HttpServlet {
         log.info("{success : 'inside doPost()'}");
 
         response.setContentType("application/json");
-        Gson gson = new Gson();
+//        Gson gson = new Gson();
+        Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
 
         try {
             StringBuilder sb = new StringBuilder();
@@ -53,6 +55,39 @@ public class FourthLevel extends HttpServlet {
             response.getOutputStream().print(gson.toJson("{'message' : 'failure'}"));
             response.getOutputStream().flush();
         }
+    }
 
+    @Override
+    protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        response.setContentType("application/json");
+//        Gson gson = new Gson();
+        Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
+
+        try {
+            StringBuilder sb = new StringBuilder();
+            String s;
+            while ((s = request.getReader().readLine()) != null) {
+                sb.append(s);
+                log.info("reading lines: " + s);
+            }
+            log.info("all the lines that have been read: " + sb);
+
+            Level4 levelFour = gson.fromJson(sb.toString(), Level4.class);
+
+            Level4DAO levelFourDAO = new Level4DAO();
+
+            boolean result = levelFourDAO.deleteLevel4(levelFour);
+
+            response.getOutputStream().print(gson.toJson(levelFour));
+            response.getOutputStream().flush();
+
+            log.info(levelFour.toString());
+            log.info("Result of attempt to Delete: " + result);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            response.getOutputStream().print(gson.toJson("{'message' : 'failure'}"));
+            response.getOutputStream().flush();
+        }
     }
 }

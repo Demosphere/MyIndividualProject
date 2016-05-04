@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
+import com.google.gson.GsonBuilder;
 import org.apache.log4j.Logger;
 import persistence.Level1DAO;
 
@@ -35,7 +36,10 @@ public class RetrieveLevel extends HttpServlet {
         response.setContentType("text/plain");
         PrintWriter out = response.getWriter();
 
-        String json = new Gson().toJson(levels);
+//        Gson gson = new Gson();
+        Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
+
+        String json = gson.toJson(levels);
         out.println(json);
         out.close();
         log.info(request.getReader());

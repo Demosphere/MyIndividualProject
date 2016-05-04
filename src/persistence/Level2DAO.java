@@ -41,14 +41,14 @@ public class Level2DAO {
         }
     }
 
-    public Boolean deleteLevel2 (Level2 levelOne) {
+    public Boolean deleteLevel2 (Level2 levelTwo) {
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
         Transaction dbTransaction = null;
 
         try {
             dbTransaction = session.beginTransaction();
-            Level2 LevelTeoToDelete = (Level2)session.get(Level2.class, levelOne.getLevelOneID());
-            session.delete(LevelTeoToDelete);
+            Level2 LevelTwoToDelete = (Level2)session.get(Level2.class, levelTwo.getLevelTwoID());
+            session.delete(LevelTwoToDelete);
             dbTransaction.commit();
 
         } catch (HibernateException error) {

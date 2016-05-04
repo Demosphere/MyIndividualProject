@@ -1,5 +1,7 @@
 package entity;
 
+import com.google.gson.annotations.Expose;
+
 import java.util.Set;
 
 /**
@@ -7,22 +9,15 @@ import java.util.Set;
  */
 public class Level1 {
 
-    int levelOneID;
-    String listingName;
-    String listingDescription;
-    int versionID;
-    String bookName;
-    int pageNumber;
-    private Set<Level2> levelTwo;
+    @Expose int levelOneID;
+    @Expose String listingName;
+    @Expose String listingDescription;
+    @Expose int versionID;
+    @Expose String bookName;
+    @Expose int pageNumber;
+    @Expose private Set<Level2> levelTwo;
 
     public Level1() {
-        levelOneID = 0;
-        listingName = null;
-        listingDescription = null;
-        versionID = 0;
-        bookName = null;
-        pageNumber = 0;
-        levelTwo = null;
     }
 
     public int getLevelOneID() {

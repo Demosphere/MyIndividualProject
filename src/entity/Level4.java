@@ -1,26 +1,22 @@
 package entity;
 
+import com.google.gson.annotations.Expose;
+
 /**
  * Created by Michael on 3/21/2016.
  */
 public class Level4 {
 
-    int levelFourID;
-    int levelThreeID;
-    String listingName;
-    String listingDescription;
-    int versionID;
-    String bookName;
-    int pageNumber;
+    @Expose int levelFourID;
+    @Expose int levelThreeID;
+    @Expose String listingName;
+    @Expose String listingDescription;
+    @Expose int versionID;
+    @Expose String bookName;
+    @Expose int pageNumber;
+    private Level3 levelThree;
 
     public Level4() {
-        levelFourID = 0;
-        levelThreeID = 0;
-        listingName = null;
-        listingDescription = null;
-        versionID = 0;
-        bookName = null;
-        pageNumber = 0;
     }
 
     public int getLevelFourID() {
@@ -77,5 +73,13 @@ public class Level4 {
 
     public void setPageNumber(int pageNumber) {
         this.pageNumber = pageNumber;
+    }
+
+    public Level3 getLevelThree() {
+        return levelThree;
+    }
+
+    public void setLevelThree(Level3 levelThree) {
+        this.levelThree = levelThree;
     }
 }
