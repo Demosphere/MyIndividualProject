@@ -8,12 +8,12 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
     $scope.sendLevelTwo = function () {
         if ($scope.children == "True") {
             $http({
-                method: 'POST',
+                method: 'PUT',
                 url: 'http://localhost:8080/html/Level/Two',
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                 data: {
                     'levelTwoID': 0,
-                    'levelOneID': $scope.child.parent,
+                    'levelOneID': parseInt($scope.child.parent),
                     'listingName': $scope.child.name,
                     'listingDescription': '',
                     'versionID': 0,
@@ -31,12 +31,12 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
             });
         } else {
             $http({
-                method: 'POST',
+                method: 'PUT',
                 url: 'http://localhost:8080/html/Level/Two',
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                 data: {
                     'levelTwoID': 0,
-                    'levelOneID': $scope.child.parent,
+                    'levelOneID': parseInt($scope.child.parent),
                     'listingName': $scope.child.name,
                     'listingDescription': $scope.child.description,
                     'versionID': 0,
@@ -60,7 +60,7 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
     $scope.sendLevelThree = function () {
         if ($scope.children == "True") {
             $http({
-                method: 'POST',
+                method: 'PUT',
                 url: 'http://localhost:8080/html/Level/Three',
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                 data: {
@@ -83,7 +83,7 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
             });
         } else {
             $http({
-                method: 'POST',
+                method: 'PUT',
                 url: 'http://localhost:8080/html/Level/Three',
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                 data: {
@@ -110,7 +110,7 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
     // These Functions are duplicated because I can't figure out how to get the "data" variable to be set to an onject.
     $scope.sendLevelFour = function () {
             $http({
-                method: 'POST',
+                method: 'PUT',
                 url: 'http://localhost:8080/html/Level/Four',
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                 data: {

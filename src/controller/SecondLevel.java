@@ -41,6 +41,40 @@ public class SecondLevel extends HttpServlet {
 
             Level2DAO levelTwoDAO = new Level2DAO();
 
+            levelTwoDAO.updateLevel2(levelTwo);
+
+            response.getOutputStream().print(gson.toJson(levelTwo));
+            response.getOutputStream().flush();
+
+            log.info(levelTwo.toString());
+            log.info("Update occurred");
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            response.getOutputStream().print(gson.toJson("{'message' : 'failure'}"));
+            response.getOutputStream().flush();
+        }
+    }
+
+    @Override
+    protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        response.setContentType("application/json");
+//        Gson gson = new Gson();
+        Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
+
+        try {
+            StringBuilder sb = new StringBuilder();
+            String s;
+            while ((s = request.getReader().readLine()) != null) {
+                log.info("reading lines: " + s);
+                sb.append(s);
+            }
+            log.info("all the lines that have been read: " + sb);
+
+            Level2 levelTwo = gson.fromJson(sb.toString(), Level2.class);
+
+            Level2DAO levelTwoDAO = new Level2DAO();
+
             int result = levelTwoDAO.addLevel2(levelTwo);
 
             response.getOutputStream().print(gson.toJson(levelTwo));

@@ -22,7 +22,7 @@
         <property name="pageNumber" column="Page_number" type="int"/>
 
         <!-- Table RI -->
-        <set name="levelTwo" cascade="all" lazy="true">
+        <set name="levelTwo" lazy="true" cascade="none">
             <key column="Level_One_ID"/>
             <one-to-many class="entity.Level2"/>
         </set>

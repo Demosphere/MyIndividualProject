@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>TheCodex</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../css/sb-admin.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Angular.JS Core JavaScript Framework -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-route.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-resource.js"></script>
+
+    <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.3.0.js"></script>
+
+    <!-- ANGULAR MODULES -->
+    <script src="../js/myChanger.js"></script>
+
+</head>
+
+<body ng-app="myChanger">
+
+<div id="wrapper">
+
+    <!-- Navigation -->
+    <div ng-include="'../html/templates/nav/navbar_container.html'"></div>
+    <!-- /.Navigation -->
+
+    <div id="page-wrapper">
+
+        <div class="container-fluid">
+
+            <!-- Page Heading -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">
+                        Delete Level
+                        <small> - level1, level2, level3 and level4</small>
+                    </h1>
+                </div>
+            </div>
+            <!-- /.row -->
+
+            <div class="row" ng-controller="myCtrl as Ctrl" ng-init="getDataFromServer()">
+                <div class="col-lg-12">
+
+                    <form role="form">
+
+                        <div class="form-group">
+                            <label>Select Listing Table Level To Update:</label>
+                            <select class="form-control" ng-model="setLevel" ng-init="setLevel = 'One'">
+                                <option value="One">1</option>
+                                <option value="Two">2</option>
+                                <option value="Three">3</option>
+                                <option value="Four">4</option>
+                            </select>
+                            <br>
+                        </div>
+
+                        <div class="form-group"
+                             ng-show="setLevel == 'One'">
+                            <label> Choose Level1 to Delete:</label>
+                            <select class="form-control" ng-model="level" ng-click="setUpdateLevel(level)">
+                                <option ng-repeat="level1 in serverData" value="{{level1}}">
+                                    {{level1.levelOneID}} - {{level1.listingName}}
+                                </option>
+                            </select>
+                        </div>
+
+                        <div class="form-group" ng-show="setLevel == 'Two'">
+                            <label> Choose Level2 to Delete:</label>
+                            <ol ng-repeat="level1 in serverData" ng-show="level1.levelTwo.length">Branch: {{level1.listingName}}:
+                                <select class="form-control" ng-model="level" ng-click="setUpdateLevel(level)">
+                                    <option ng-repeat="levelTwo in level1.levelTwo" value="{{levelTwo}}">
+                                        {{levelTwo.levelTwoID}} - {{levelTwo.listingName}}
+                                    </option>
+                                </select>
+                            </ol>
+                        </div>
+
+                        <div class="form-group" ng-show="setLevel == 'Three'">
+                            <label> Choose Level3 to Delete:</label>
+                            <ol ng-repeat="level1 in serverData" ng-show="level1.levelTwo.length">Branch: {{level1.listingName}}:
+                                <ol ng-repeat="level2 in level1.levelTwo" ng-show="level2.levelThree.length">Branch: {{level2.listingName}}:
+                                    <select class="form-control" ng-model="level"  ng-click="setUpdateLevel(level)">
+                                        <option ng-repeat="levelThree in level2.levelThree" value="{{levelThree}}">
+                                            {{levelThree.levelTwoID}} - {{levelThree.listingName}}
+                                        </option>
+                                    </select>
+                                </ol>
+                            </ol>
+                        </div>
+
+                        <div class="form-group" ng-show="setLevel == 'Four'">
+                            <label> Choose Level3 to Delete Four:</label>
+                            <ol ng-repeat="level1 in serverData" ng-show="level1.levelTwo.length">Branch: {{level1.listingName}}:
+                                <ol ng-repeat="level2 in level1.levelTwo" ng-show="level2.levelThree.length">Branch: {{level2.listingName}}:
+                                    <ol ng-repeat="level3 in level2.levelThree" ng-show="level3.levelFour.length">Branch: {{level3.listingName}}:
+                                        <select class="form-control" ng-model="level"  ng-click="setUpdateLevel(level)">
+                                            <option ng-repeat="levelFour in level3.levelFour" value="{{levelFour}}">
+                                                {{levelFour.levelTwoID}} - {{levelFour.listingName}}
+                                            </option>
+                                        </select>
+                                    </ol>
+                                </ol>
+                            </ol>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Name of Listing: </label>
+                            <input class="form-control" ng-model="updateLevel.listingName">
+                            <br>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Description of Listing: </label>
+                            <textarea class="form-control" rows="10" ng-model="updateLevel.listingDescription"></textarea>
+                            <br>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Book Listing Is Location In: </label>
+                            <input class="form-control" ng-model="updateLevel.bookName">
+                            <br>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Page Number Listing Is Located At: </label>
+                            <input class="form-control" ng-model="updateLevel.pageNumber">
+                            <br>
+                        </div>
+
+                        <blockquote>
+                            <span ng-show="setLevel == 'One'">{'levelOneID': , {{updateLevel.levelOneID}}
+                            </span>
+
+                            <span ng-show="setLevel == 'Two'">{'levelTwoID' :  {{updateLevel.levelTwoID}}
+                            <br> 'levelOneID': , {{updateLevel.levelOneID}} </span>
+
+                            <span ng-show="setLevel == 'Three'">{'levelThreeID' :  {{updateLevel.levelThreeID}}
+                            <br> 'levelTwoID': , {{updateLevel.levelTwoID}} </span>
+
+                            <span ng-show="setLevel == 'Four'">{'levelFourID' :  {{updateLevel.levelFourID}}
+                            <br> 'levelThreeID': , {{updateLevel.levelThreeID}} </span>
+
+                            <br> 'listingName': '{{updateLevel.listingName}}',
+                            <br> 'listingDescription': '{{updateLevel.listingDescription}}',
+                            <br> 'versionID': {{updateLevel.versionID}},
+                            <br> 'bookName': '{{updateLevel.bookName}}',
+                            <br> 'pageNumber': {{updateLevel.pageNumber}},
+                            <span ng-show="setLevel == 'Four'"><br> 'pageNumber': {{updateLevel.pageNumber}}</span>
+                            <span ng-show="!setLevel == 'Four'"><br> 'pageNumber': {{updateLevel.pageNumber}},</span>
+                            <span ng-show="setLevel == 'One'"><br> 'levelTwo' : [{{updateLevel.levelTwo}}]</span>
+                            <span ng-show="setLevel == 'Two'"><br> 'levelThree' : [{{updateLevel.levelThree}}]</span>
+                            <span ng-show="setLevel == 'Three'"><br> 'levelFour' : [{{updateLevel.levelFour}}]</span>
+                            <br>}
+                        </blockquote>
+
+                        <button type="submit" class="btn btn-default" ng-click="sendLevelOne()"
+                                ng-show="setLevel == 'One'">Submit Level 1
+                        </button>
+                        <button type="submit" class="btn btn-default" ng-click="sendLevelTwo()"
+                                ng-show="setLevel == 'Two'">Submit Level 2
+                        </button>
+                        <button type="submit" class="btn btn-default" ng-click="sendLevelThree()"
+                                ng-show="setLevel == 'Three'">Submit Level 3
+                        </button>
+                        <button type="submit" class="btn btn-default" ng-click="sendLevelFour()"
+                                ng-show="setLevel == 'Four'">Submit Level 4
+                        </button>
+                        <br>
+                        <br>
+                        <p>Select JSON : {{level}}</p>
+                        <br>
+                        <br>
+                        <p>Select Delete JSON : {{updateLevel}}</p>
+                        <br>
+                        <br>
+                        <p>Return String : {{parsedData}}</p>
+                    </form>
+
+                </div>
+            </div>
+            <!-- /.row -->
+
+        </div>
+        <!-- /.container-fluid -->
+
+    </div>
+    <!-- /#page-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
+<!-- jQuery -->
+<script src="../js/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="../js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

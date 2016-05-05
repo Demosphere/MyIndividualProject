@@ -40,6 +40,39 @@ public class ThirdLevel extends HttpServlet {
 
             Level3DAO levelThreeDAO = new Level3DAO();
 
+            levelThreeDAO.updateLevel3(levelThree);
+
+            response.getOutputStream().print(gson.toJson(levelThree));
+            response.getOutputStream().flush();
+
+            log.info(levelThree.toString());
+            log.info("Update occurred");
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            response.getOutputStream().print(gson.toJson("{'message' : 'failure'}"));
+            response.getOutputStream().flush();
+        }
+    }
+
+    @Override
+    protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("application/json");
+//        Gson gson = new Gson();
+        Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
+
+        try {
+            StringBuilder sb = new StringBuilder();
+            String s;
+            while ((s = request.getReader().readLine()) != null) {
+                log.info("reading lines: " + s);
+                sb.append(s);
+            }
+            log.info("all the lines that have been read: " + sb);
+
+            Level3 levelThree = gson.fromJson(sb.toString(), Level3.class);
+
+            Level3DAO levelThreeDAO = new Level3DAO();
+
             int result = levelThreeDAO.addLevel3(levelThree);
 
             response.getOutputStream().print(gson.toJson(levelThree));

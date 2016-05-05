@@ -43,6 +43,42 @@ public class FourthLevel extends HttpServlet {
 
             Level4DAO levelFourDAO = new Level4DAO();
 
+            levelFourDAO.updateLevel4(levelFour);
+
+            response.getOutputStream().print(gson.toJson(levelFour));
+            response.getOutputStream().flush();
+
+            log.info(levelFour.toString());
+            log.info("Update occurred");
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            response.getOutputStream().print(gson.toJson("{'message' : 'failure'}"));
+            response.getOutputStream().flush();
+        }
+    }
+
+    @Override
+    protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        log.info("{success : 'inside doPost()'}");
+
+        response.setContentType("application/json");
+//        Gson gson = new Gson();
+        Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
+
+        try {
+            StringBuilder sb = new StringBuilder();
+            String s;
+            while ((s = request.getReader().readLine()) != null) {
+                log.info("reading lines: " + s);
+                sb.append(s);
+            }
+            log.info("all the lines that have been read: " + sb);
+
+            Level4 levelFour = gson.fromJson(sb.toString(), Level4.class);
+
+            Level4DAO levelFourDAO = new Level4DAO();
+
             int result = levelFourDAO.addLevel4(levelFour);
 
             response.getOutputStream().print(gson.toJson(levelFour));

@@ -9,7 +9,7 @@ app.controller('myCreatorCtrl', ['$scope', '$http', function ($scope, $http) {
         if ($scope.children == "True") {
             alert($scope.rootLevel.name);
             $http({
-                method: 'POST',
+                method: 'PUT',
                 url: 'http://localhost:8080/html/Level/One',
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                 data: {
@@ -31,7 +31,7 @@ app.controller('myCreatorCtrl', ['$scope', '$http', function ($scope, $http) {
             });
         } else {
             $http({
-                method: 'POST',
+                method: 'PUT',
                 url: 'http://localhost:8080/html/Level/One',
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                 data: {

@@ -18,7 +18,7 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
                     'versionID': 0,
                     'bookName': '',
                     'pageNumber': 0,
-                    'levelTwo': $scope.deleteLevel.levelTwo
+                    'levelTwo': []
                 }
             }).success(function (response) {
                 var data = angular.fromJson(response);

@@ -14,9 +14,15 @@ public class Level4 {
     @Expose int versionID;
     @Expose String bookName;
     @Expose int pageNumber;
-    private Level3 levelThree;
 
     public Level4() {
+        levelFourID = 0;
+        levelThreeID = 0;
+        listingName = null;
+        listingDescription = null;
+        versionID = 0;
+        bookName = null;
+        pageNumber = 0;
     }
 
     public int getLevelFourID() {
@@ -75,11 +81,4 @@ public class Level4 {
         this.pageNumber = pageNumber;
     }
 
-    public Level3 getLevelThree() {
-        return levelThree;
-    }
-
-    public void setLevelThree(Level3 levelThree) {
-        this.levelThree = levelThree;
-    }
 }

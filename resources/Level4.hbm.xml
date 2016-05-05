@@ -14,15 +14,12 @@
             <column name="Level_Four_ID" sql-type="int(11)"/>
         </id>
         <!--Add a property for all other instance variables/columns-->
+        <property name="levelThreeID" column="Level_Three_ID" type="int"/>
         <property name="listingName" column="Listing_Name" type="string"/>
         <property name="listingDescription" column="Listing_Description" type="string"/>
         <property name="versionID" column="Version_ID" type="int"/>
         <property name="bookName" column="Book_Name" type="string"/>
         <property name="pageNumber" column="Page_Number" type="int"/>
-
-        <!-- Table RI -->
-        <many-to-one name="levelThree" class="entity.Level3"
-                     column="Level_Three_ID" />
 
     </class>
 </hibernate-mapping>

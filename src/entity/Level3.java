@@ -2,6 +2,9 @@ package entity;
 
 import com.google.gson.annotations.Expose;
 
+import javax.persistence.CascadeType;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
 import java.util.Set;
 
 /**
@@ -16,10 +19,19 @@ public class Level3 {
     @Expose int versionID;
     @Expose String bookName;
     @Expose int pageNumber;
-    @Expose private Set<Level4> levelFour;
-    private Level2 levelTwo;
+    @Expose
+    @OneToMany(fetch= FetchType.EAGER, targetEntity=Level4.class, cascade= CascadeType.ALL)
+    private Set<Level4> levelFour;
 
     public Level3() {
+        levelThreeID = 0;
+        levelTwoID = 0;
+        listingName = null;
+        listingDescription = null;
+        versionID = 0;
+        bookName = null;
+        pageNumber = 0;
+        levelFour = null;
     }
 
     public int getLevelThreeID() {
@@ -90,11 +102,4 @@ public class Level3 {
         this.levelFour.add(inLevelFour);
     }
 
-    public Level2 getLevelTwo() {
-        return levelTwo;
-    }
-
-    public void setLevelTwo(Level2 levelTwo) {
-        this.levelTwo = levelTwo;
-    }
 }
