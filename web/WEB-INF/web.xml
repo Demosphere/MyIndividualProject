@@ -44,15 +44,6 @@
         <url-pattern>/html/Level/Four</url-pattern>
     </servlet-mapping>
 
-    <servlet>
-        <servlet-name>RetrieveLevel</servlet-name>
-        <servlet-class>controller.RetrieveLevel</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>RetrieveLevel</servlet-name>
-        <url-pattern>/html/index</url-pattern>
-    </servlet-mapping>
-
     <!-- Protect everything within the "user" directory. -->
     <!--<security-constraint>-->
         <!--<web-resource-collection>-->

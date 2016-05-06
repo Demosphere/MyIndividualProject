@@ -125,7 +125,7 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
     $scope.getDataFromServer = function () {
         $http({
             method: 'GET',
-            url: baseURL + '/index'
+            url: baseURL + '/Level/One'
         }).success(function (response) {
             var listings = angular.fromJson(response);
             $scope.serverData = listings;

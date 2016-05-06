@@ -3,13 +3,14 @@ var app = angular.module('myApp', []);
 app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
 
     $scope.child = {};
+    var baseURL = 'http://localhost:8080/html/';
 
     // These Functions are duplicated because I can't figure out how to get the "data" variable to be set to an onject.
-    $scope.sendLevelTwo = function () {
+    $scope.sendLevelTwo = function (method) {
         if ($scope.children == "True") {
             $http({
-                method: 'PUT',
-                url: 'http://localhost:8080/html/Level/Two',
+                method: method,
+                url: baseURL + 'Level/Two',
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                 data: {
                     'levelTwoID': 0,
@@ -22,17 +23,15 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
                     'levelThree': []
                 }
             }).success(function (response) {
-                var data = angular.fromJson(response);
-                $scope.parsedData = data;
+                $scope.parsedData= angular.fromJson(response);
                 $scope.getDataFromServer();
             }).error(function (response) {
-                alert(response);
-                // called asynchronously if an error occurs or server returns response with an error status.
+                alert("Error: " + response);
             });
         } else {
             $http({
-                method: 'PUT',
-                url: 'http://localhost:8080/html/Level/Two',
+                method: method,
+                url: baseURL + 'Level/Two',
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                 data: {
                     'levelTwoID': 0,
@@ -45,23 +44,21 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
                     'levelThree': []
                 }
             }).success(function (response) {
-                var data = angular.fromJson(response);
-                $scope.parsedData = data;
+                $scope.parsedData= angular.fromJson(response);
                 $scope.getDataFromServer();
                 alert(data);
             }).error(function (response) {
-                alert(response);
-                // called asynchronously if an error occurs or server returns response with an error status.
+                alert("Error: " + response);
             });
         }
     }
 
     // These Functions are duplicated because I can't figure out how to get the "data" variable to be set to an onject.
-    $scope.sendLevelThree = function () {
+    $scope.sendLevelThree = function (method) {
         if ($scope.children == "True") {
             $http({
-                method: 'PUT',
-                url: 'http://localhost:8080/html/Level/Three',
+                method: method,
+                url: baseURL + 'Level/Three',
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                 data: {
                     'levelThreeID': 0,
@@ -74,17 +71,15 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
                     'levelFour': []
                 }
             }).success(function (response) {
-                var data = angular.fromJson(response);
-                $scope.parsedData = data;
+                $scope.parsedData= angular.fromJson(response);
                 $scope.getDataFromServer();
             }).error(function (response) {
-                alert(response);
-                // called asynchronously if an error occurs or server returns response with an error status.
+                alert("Error: " + response);
             });
         } else {
             $http({
-                method: 'PUT',
-                url: 'http://localhost:8080/html/Level/Three',
+                method: method,
+                url: baseURL + 'Level/Three',
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                 data: {
                     'levelThreeID': 0,
@@ -97,21 +92,19 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
                     'levelFour': []
                 }
             }).success(function (response) {
-                var data = angular.fromJson(response);
-                $scope.parsedData = data;
+                $scope.parsedData= angular.fromJson(response);
                 $scope.getDataFromServer();
             }).error(function (response) {
-                alert(response);
-                // called asynchronously if an error occurs or server returns response with an error status.
+                alert("Error: " + response);
             });
         }
     }
 
     // These Functions are duplicated because I can't figure out how to get the "data" variable to be set to an onject.
-    $scope.sendLevelFour = function () {
+    $scope.sendLevelFour = function (method) {
             $http({
-                method: 'PUT',
-                url: 'http://localhost:8080/html/Level/Four',
+                method: method,
+                url: baseURL + 'Level/Four',
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                 data: {
                     'levelFourID': 0,
@@ -127,8 +120,7 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
                 $scope.parsedData = data;
                 $scope.getDataFromServer();
             }).error(function (response) {
-                alert(response);
-                // called asynchronously if an error occurs or server returns response with an error status.
+                alert("Error: " + response);
             });
     }
 
@@ -139,22 +131,18 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
         $scope.child.description = "";
         $scope.child.bookName = "";
         $scope.child.pageNumber = "";
-
         $scope.children = "True";
-
     }
 
     $scope.getDataFromServer = function () {
         $http({
             method: 'GET',
-            url: 'http://localhost:8080/html/index'
+            url: baseURL + 'Level/One'
         }).success(function (response) {
-            var listings = angular.fromJson(response);
-            $scope.serverData = listings;
+            $scope.serverData = angular.fromJson(response);
             $scope.response = response;
-        }).error(function (data, status, headers, config) {
-            alert(data);
-            // called asynchronously if an error occurs or server returns response with an error status.
+        }).error(function (response) {
+            alert("Error: " + response);
         });
 
     };
