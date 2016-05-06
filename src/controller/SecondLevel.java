@@ -11,7 +11,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import entity.Level2;
 import org.apache.log4j.Logger;
-import persistence.Level2DAO;
+import persistence.AbstractDAO;
 
 /**
  * Created by Michael on 4/28/2016.
@@ -20,14 +20,12 @@ import persistence.Level2DAO;
 public class SecondLevel extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private final Logger log = Logger.getLogger(this.getClass());
+    private AbstractDAO<Level2> levelTwoDAO = new AbstractDAO<Level2>(Level2.class);
+    private Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         response.setContentType("application/json");
-//        Gson gson = new Gson();
-        Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
-
         try {
             StringBuilder sb = new StringBuilder();
             String s;
@@ -36,16 +34,10 @@ public class SecondLevel extends HttpServlet {
                 sb.append(s);
             }
             log.info("all the lines that have been read: " + sb);
-
             Level2 levelTwo = gson.fromJson(sb.toString(), Level2.class);
-
-            Level2DAO levelTwoDAO = new Level2DAO();
-
-            levelTwoDAO.updateLevel2(levelTwo);
-
+            levelTwoDAO.update(levelTwo);
             response.getOutputStream().print(gson.toJson(levelTwo));
             response.getOutputStream().flush();
-
             log.info(levelTwo.toString());
             log.info("Update occurred");
         } catch (Exception ex) {
@@ -57,11 +49,7 @@ public class SecondLevel extends HttpServlet {
 
     @Override
     protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         response.setContentType("application/json");
-//        Gson gson = new Gson();
-        Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
-
         try {
             StringBuilder sb = new StringBuilder();
             String s;
@@ -70,16 +58,10 @@ public class SecondLevel extends HttpServlet {
                 sb.append(s);
             }
             log.info("all the lines that have been read: " + sb);
-
             Level2 levelTwo = gson.fromJson(sb.toString(), Level2.class);
-
-            Level2DAO levelTwoDAO = new Level2DAO();
-
-            int result = levelTwoDAO.addLevel2(levelTwo);
-
+            int result = levelTwoDAO.create(levelTwo);
             response.getOutputStream().print(gson.toJson(levelTwo));
             response.getOutputStream().flush();
-
             log.info(levelTwo.toString());
             log.info("Result of attempt to add: " + result);
         } catch (Exception ex) {
@@ -92,11 +74,7 @@ public class SecondLevel extends HttpServlet {
 
     @Override
     protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         response.setContentType("application/json");
-//        Gson gson = new Gson();
-        Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
-
         try {
             StringBuilder sb = new StringBuilder();
             String s;
@@ -105,18 +83,12 @@ public class SecondLevel extends HttpServlet {
                 log.info("reading lines: " + s);
             }
             log.info("all the lines that have been read: " + sb);
-
             Level2 levelTwo = gson.fromJson(sb.toString(), Level2.class);
-
-            Level2DAO levelTwoDAO = new Level2DAO();
-
-            boolean result = levelTwoDAO.deleteLevel2(levelTwo);
-
+            levelTwoDAO.delete(levelTwo);
             response.getOutputStream().print(gson.toJson(levelTwo));
             response.getOutputStream().flush();
-
             log.info(levelTwo.toString());
-            log.info("Result of attempt to Delete: " + result);
+            log.info("Attempted to Delete" );
         } catch (Exception ex) {
             ex.printStackTrace();
             response.getOutputStream().print(gson.toJson("{'message' : 'failure'}"));

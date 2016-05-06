@@ -11,7 +11,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import entity.Level3;
 import org.apache.log4j.Logger;
-import persistence.Level3DAO;
+import persistence.AbstractDAO;
 
 /**
  * Created by Michael on 4/28/2016.
@@ -20,13 +20,12 @@ import persistence.Level3DAO;
 public class ThirdLevel extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private final Logger log = Logger.getLogger(this.getClass());
+    private AbstractDAO<Level3> levelThreeDAO = new AbstractDAO<Level3>(Level3.class);
+    private Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("application/json");
-//        Gson gson = new Gson();
-        Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
-
         try {
             StringBuilder sb = new StringBuilder();
             String s;
@@ -35,16 +34,10 @@ public class ThirdLevel extends HttpServlet {
                 sb.append(s);
             }
             log.info("all the lines that have been read: " + sb);
-
             Level3 levelThree = gson.fromJson(sb.toString(), Level3.class);
-
-            Level3DAO levelThreeDAO = new Level3DAO();
-
-            levelThreeDAO.updateLevel3(levelThree);
-
+            levelThreeDAO.update(levelThree);
             response.getOutputStream().print(gson.toJson(levelThree));
             response.getOutputStream().flush();
-
             log.info(levelThree.toString());
             log.info("Update occurred");
         } catch (Exception ex) {
@@ -57,9 +50,6 @@ public class ThirdLevel extends HttpServlet {
     @Override
     protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("application/json");
-//        Gson gson = new Gson();
-        Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
-
         try {
             StringBuilder sb = new StringBuilder();
             String s;
@@ -68,16 +58,10 @@ public class ThirdLevel extends HttpServlet {
                 sb.append(s);
             }
             log.info("all the lines that have been read: " + sb);
-
             Level3 levelThree = gson.fromJson(sb.toString(), Level3.class);
-
-            Level3DAO levelThreeDAO = new Level3DAO();
-
-            int result = levelThreeDAO.addLevel3(levelThree);
-
+            int result = levelThreeDAO.create(levelThree);
             response.getOutputStream().print(gson.toJson(levelThree));
             response.getOutputStream().flush();
-
             log.info(levelThree.toString());
             log.info("Result of attempt to add: " + result);
         } catch (Exception ex) {
@@ -89,11 +73,7 @@ public class ThirdLevel extends HttpServlet {
 
     @Override
     protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         response.setContentType("application/json");
-//        Gson gson = new Gson();
-        Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
-
         try {
             StringBuilder sb = new StringBuilder();
             String s;
@@ -102,23 +82,16 @@ public class ThirdLevel extends HttpServlet {
                 log.info("reading lines: " + s);
             }
             log.info("all the lines that have been read: " + sb);
-
             Level3 levelThree = gson.fromJson(sb.toString(), Level3.class);
-
-            Level3DAO levelThreeDAO = new Level3DAO();
-
-            boolean result = levelThreeDAO.deleteLevel3(levelThree);
-
+            levelThreeDAO.delete(levelThree);
             response.getOutputStream().print(gson.toJson(levelThree));
             response.getOutputStream().flush();
-
             log.info(levelThree.toString());
-            log.info("Result of attempt to Delete: " + result);
+            log.info("Result of attempt to Delete: ");
         } catch (Exception ex) {
             ex.printStackTrace();
             response.getOutputStream().print(gson.toJson("{'message' : 'failure'}"));
             response.getOutputStream().flush();
         }
     }
-
 }

@@ -7,7 +7,7 @@ app.controller('myRetrieverCtrl', ['$scope', '$http', function ($scope, $http) {
     $scope.getDataFromServer = function () {
         $http({
             method: 'GET',
-            url: 'http://localhost:8080/html/index'
+            url: 'http://localhost:8080/html/Level/One'
         }).success(function (response) {
             var listings = angular.fromJson(response);
             $scope.serverData = listings;
