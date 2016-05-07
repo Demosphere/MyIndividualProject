@@ -1,4 +1,6 @@
-var app = angular.module('myApp', []);
+var app = angular.module('myApp', ['ui.bootstrap']);
+
+app.filter('unsafe', function($sce) { return $sce.trustAsHtml; });
 
 app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
 
@@ -188,7 +190,6 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
         }).error(function (response) {
             alert("Error: " + response);
         });
-
     };
 
 }]);
