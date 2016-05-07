@@ -35,11 +35,11 @@
     <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.3.0.js"></script>
 
     <!-- ANGULAR MODULES -->
-    <script src="../js/myDestroyer.js"></script>
+    <script src="../js/myApp.js"></script>
 
 </head>
 
-<body ng-app="myDestroyer">
+<body ng-app="myApp">
 
 <div id="wrapper">
 
@@ -62,7 +62,7 @@
             </div>
             <!-- /.row -->
 
-            <div class="row" ng-controller="myCtrl as Ctrl" ng-init="getDataFromServer()">
+            <div class="row" ng-controller="myCtrl as Ctrl" ng-init="getDataFromServer() && initClientLevel()">
                 <div class="col-lg-12">
 
                     <form role="form">
@@ -81,7 +81,7 @@
                         <div class="form-group"
                              ng-show="setLevel == 'One'">
                             <label> Choose Level1 to Delete:</label>
-                            <select class="form-control" ng-model="level" ng-click="setDeleteLevel(level)">
+                            <select class="form-control" ng-model="level" ng-click="setClientLevel(level)">
                                 <option ng-repeat="level1 in serverData" value="{{level1}}">
                                     {{level1.levelOneID}} - {{level1.listingName}}
                                 </option>
@@ -91,7 +91,7 @@
                         <div class="form-group" ng-show="setLevel == 'Two'">
                             <label> Choose Level2 to Delete:</label>
                             <ol ng-repeat="level1 in serverData" ng-show="level1.levelTwo.length">Branch: {{level1.listingName}}:
-                                <select class="form-control" ng-model="level" ng-click="setDeleteLevel(level)">
+                                <select class="form-control" ng-model="level" ng-click="setClientLevel(level)">
                                     <option ng-repeat="levelTwo in level1.levelTwo" value="{{levelTwo}}">
                                         {{levelTwo.levelTwoID}} - {{levelTwo.listingName}}
                                     </option>
@@ -103,7 +103,7 @@
                             <label> Choose Level3 to Delete:</label>
                             <ol ng-repeat="level1 in serverData" ng-show="level1.levelTwo.length">Branch: {{level1.listingName}}:
                                 <ol ng-repeat="level2 in level1.levelTwo" ng-show="level2.levelThree.length">Branch: {{level2.listingName}}:
-                                    <select class="form-control" ng-model="level"  ng-click="setDeleteLevel(level)">
+                                    <select class="form-control" ng-model="level"  ng-click="setClientLevel(level)">
                                         <option ng-repeat="levelThree in level2.levelThree" value="{{levelThree}}">
                                             {{levelThree.levelTwoID}} - {{levelThree.listingName}}
                                         </option>
@@ -117,7 +117,7 @@
                             <ol ng-repeat="level1 in serverData" ng-show="level1.levelTwo.length">Branch: {{level1.listingName}}:
                                 <ol ng-repeat="level2 in level1.levelTwo" ng-show="level2.levelThree.length">Branch: {{level2.listingName}}:
                                     <ol ng-repeat="level3 in level2.levelThree" ng-show="level3.levelFour.length">Branch: {{level3.listingName}}:
-                                    <select class="form-control" ng-model="level"  ng-click="setDeleteLevel(level)">
+                                    <select class="form-control" ng-model="level"  ng-click="setClientLevel(level)">
                                         <option ng-repeat="levelFour in level3.levelFour" value="{{levelFour}}">
                                             {{levelFour.levelTwoID}} - {{levelFour.listingName}}
                                         </option>
@@ -127,30 +127,30 @@
                             </ol>
                         </div>
 
-                        <button type="submit" class="btn btn-default" ng-click="setDeleteLevel(level)">Populate
+                        <button type="submit" class="btn btn-default" ng-click="setClientLevel(level)">Populate
                         </button>
 
                         <blockquote>
-                            <span ng-show="setLevel == 'One'">{'levelOneID': , {{deleteLevel.levelOneID}}
+                            <span ng-show="setLevel == 'One'">{'levelOneID': , {{clientLevel.levelOneID}}
                             </span>
 
-                            <span ng-show="setLevel == 'Two'">{'levelTwoID' :  {{deleteLevel.levelTwoID}}
-                            <br> 'levelOneID': , {{deleteLevel.levelOneID}} </span>
+                            <span ng-show="setLevel == 'Two'">{'levelTwoID' :  {{clientLevel.levelTwoID}}
+                            <br> 'levelOneID': , {{clientLevel.levelOneID}} </span>
 
-                            <span ng-show="setLevel == 'Three'">{'levelThreeID' :  {{deleteLevel.levelThreeID}}
-                            <br> 'levelTwoID': , {{deleteLevel.levelTwoID}} </span>
+                            <span ng-show="setLevel == 'Three'">{'levelThreeID' :  {{clientLevel.levelThreeID}}
+                            <br> 'levelTwoID': , {{clientLevel.levelTwoID}} </span>
 
-                            <span ng-show="setLevel == 'Four'">{'levelFourID' :  {{deleteLevel.levelFourID}}
-                            <br> 'levelThreeID': , {{deleteLevel.levelThreeID}} </span>
+                            <span ng-show="setLevel == 'Four'">{'levelFourID' :  {{clientLevel.levelFourID}}
+                            <br> 'levelThreeID': , {{clientLevel.levelThreeID}} </span>
 
                             <br> 'listingName': '',
                             <br> 'listingDescription': '',
                             <br> 'versionID': 0,
                             <br> 'bookName': '',
                             <br> 'pageNumber': 0,
-                            <span ng-show="setLevel == 'One'"><br> 'levelTwo' : [{{deleteLevel.levelTwo}}]</span>
-                            <span ng-show="setLevel == 'Two'"><br> 'levelThree' : [{{deleteLevel.levelThree}}]</span>
-                            <span ng-show="setLevel == 'Three'"><br> 'levelFour' : [{{deleteLevel.levelFour}}]</span>
+                            <span ng-show="setLevel == 'One'"><br> 'levelTwo' : [{{clientLevel.levelTwo}}]</span>
+                            <span ng-show="setLevel == 'Two'"><br> 'levelThree' : [{{clientLevel.levelThree}}]</span>
+                            <span ng-show="setLevel == 'Three'"><br> 'levelFour' : [{{clientLevel.levelFour}}]</span>
                             <br>}
                         </blockquote>
 
@@ -171,7 +171,7 @@
                         <p>Select JSON : {{level}}</p>
                         <br>
                         <br>
-                        <p>Select Delete JSON : {{deleteLevel}}</p>
+                        <p>Select Delete JSON : {{clientLevel}}</p>
 
                         <br>
                         <br>

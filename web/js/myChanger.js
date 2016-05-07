@@ -3,7 +3,7 @@ var app = angular.module('myChanger', []);
 app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
 
     var baseURL = 'http://localhost:8080/html/';
-    $scope.updateLevel = {};
+    $scope.clientLevel = {};
 
     $scope.sendLevelOne = function (method) {
         $http({
@@ -11,13 +11,13 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
             url: baseURL + 'Level/One',
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
             data: {
-                'levelOneID': $scope.updateLevel.levelOneID,
-                'listingName': $scope.updateLevel.listingName,
-                'listingDescription': $scope.updateLevel.listingDescription,
-                'versionID': $scope.updateLevel.versionID,
-                'bookName': $scope.updateLevel.bookName,
-                'pageNumber': $scope.updateLevel.pageNumber,
-                'levelTwo': $scope.updateLevel.levelTwo
+                'levelOneID': $scope.clientLevel.levelOneID,
+                'listingName': $scope.clientLevel.listingName,
+                'listingDescription': $scope.clientLevel.listingDescription,
+                'versionID': $scope.clientLevel.versionID,
+                'bookName': $scope.clientLevel.bookName,
+                'pageNumber': $scope.clientLevel.pageNumber,
+                'levelTwo': $scope.clientLevel.levelTwo
             }
         }).success(function (response) {
             var data = angular.fromJson(response);
@@ -35,14 +35,14 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
             url: baseURL + 'Level/Two',
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
             data: {
-                'levelTwoID': $scope.updateLevel.levelTwoID,
-                'levelOneID': $scope.updateLevel.levelOneID,
-                'listingName': $scope.updateLevel.listingName,
-                'listingDescription': $scope.updateLevel.listingDescription,
-                'versionID': $scope.updateLevel.versionID,
-                'bookName': $scope.updateLevel.bookName,
-                'pageNumber': $scope.updateLevel.pageNumber,
-                'levelThree': $scope.updateLevel.levelThree
+                'levelTwoID': $scope.clientLevel.levelTwoID,
+                'levelOneID': $scope.clientLevel.levelOneID,
+                'listingName': $scope.clientLevel.listingName,
+                'listingDescription': $scope.clientLevel.listingDescription,
+                'versionID': $scope.clientLevel.versionID,
+                'bookName': $scope.clientLevel.bookName,
+                'pageNumber': $scope.clientLevel.pageNumber,
+                'levelThree': $scope.clientLevel.levelThree
             }
         }).success(function (response) {
             var data = angular.fromJson(response);
@@ -61,14 +61,14 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
             url: baseURL +  'Level/Three',
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
             data: {
-                'levelThreeID': $scope.updateLevel.levelThreeID,
-                'levelTwoID': $scope.updateLevel.levelTwoID,
-                'listingName': $scope.updateLevel.listingName,
-                'listingDescription': $scope.updateLevel.listingDescription,
-                'versionID': $scope.updateLevel.versionID,
-                'bookName': $scope.updateLevel.bookName,
-                'pageNumber': $scope.updateLevel.pageNumber,
-                'levelFour': $scope.updateLevel.levelFour
+                'levelThreeID': $scope.clientLevel.levelThreeID,
+                'levelTwoID': $scope.clientLevel.levelTwoID,
+                'listingName': $scope.clientLevel.listingName,
+                'listingDescription': $scope.clientLevel.listingDescription,
+                'versionID': $scope.clientLevel.versionID,
+                'bookName': $scope.clientLevel.bookName,
+                'pageNumber': $scope.clientLevel.pageNumber,
+                'levelFour': $scope.clientLevel.levelFour
             }
         }).success(function (response) {
             var data = angular.fromJson(response);
@@ -87,13 +87,13 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
             url: baseURL + 'Level/Four',
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
             data: {
-                'levelFourID': $scope.updateLevel.levelFourID,
-                'levelThreeID': $scope.updateLevel.levelThreeID,
-                'listingName': $scope.updateLevel.listingName,
-                'listingDescription': $scope.updateLevel.listingDescription,
-                'versionID': $scope.updateLevel.versionID,
-                'bookName': $scope.updateLevel.bookName,
-                'pageNumber': $scope.updateLevel.pageNumber,
+                'levelFourID': $scope.clientLevel.levelFourID,
+                'levelThreeID': $scope.clientLevel.levelThreeID,
+                'listingName': $scope.clientLevel.listingName,
+                'listingDescription': $scope.clientLevel.listingDescription,
+                'versionID': $scope.clientLevel.versionID,
+                'bookName': $scope.clientLevel.bookName,
+                'pageNumber': $scope.clientLevel.pageNumber,
             }
         }).success(function (response) {
             var data = angular.fromJson(response);
@@ -105,8 +105,8 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
         });
     }
 
-    $scope.setUpdateLevel = function (inLevel) {
-        $scope.updateLevel = angular.fromJson(inLevel);
+    $scope.setClientLevel = function (inLevel) {
+        $scope.clientLevel = angular.fromJson(inLevel);
     }
 
     $scope.getDataFromServer = function () {

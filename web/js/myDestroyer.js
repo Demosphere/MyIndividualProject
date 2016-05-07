@@ -3,7 +3,7 @@ var app = angular.module('myDestroyer', []);
 app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
 
     var baseURL = 'http://localhost:8080/html/';
-    $scope.deleteLevel = {};
+    $scope.clientLevel = {};
 
     // These Functions are duplicated because I can't figure out how to get the "data" variable to be set to an onject.
     $scope.sendLevelOne = function (method) {
@@ -12,13 +12,13 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
                 url: baseURL + 'Level/One',
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                 data: {
-                    'levelOneID': $scope.deleteLevel.levelOneID,
-                    'listingName': '',
-                    'listingDescription': '',
-                    'versionID': 0,
-                    'bookName': '',
-                    'pageNumber': 0,
-                    'levelTwo': []
+                    'levelOneID': $scope.clientLevel.levelOneID,
+                    'listingName': $scope.clientLevel.listingName,
+                    'listingDescription': $scope.clientLevel.listingName,
+                    'versionID': $scope.clientLevel.versionID,
+                    'bookName': $scope.clientLevel.bookName,
+                    'pageNumber': $scope.clientLevel.pageNumber,
+                    'levelTwo': $scope.clientLevel.levelTwo
                 }
             }).success(function (response) {
                 var data = angular.fromJson(response);
@@ -26,7 +26,6 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
                 $scope.getDataFromServer();
             }).error(function (response) {
                 alert(response);
-                // called asynchronously if an error occurs or server returns response with an error status.
             });
     }
 
@@ -36,14 +35,14 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
                 url: baseURL + 'Level/Two',
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                 data: {
-                    'levelTwoID': $scope.deleteLevel.levelTwoID,
-                    'levelOneID': $scope.deleteLevel.levelOneID,
-                    'listingName': '',
-                    'listingDescription': '',
-                    'versionID': 0,
-                    'bookName': '',
-                    'pageNumber': 0,
-                    'levelThree': $scope.deleteLevel.levelThree
+                    'levelTwoID': $scope.clientLevel.levelTwoID,
+                    'levelOneID': $scope.clientLevel.levelOneID,
+                    'listingName': $scope.clientLevel.listingName,
+                    'listingDescription': $scope.clientLevel.listingName,
+                    'versionID': $scope.clientLevel.versionID,
+                    'bookName': $scope.clientLevel.bookName,
+                    'pageNumber': $scope.clientLevel.pageNumber,
+                    'levelThree': $scope.clientLevel.levelThree
                 }
             }).success(function (response) {
                 var data = angular.fromJson(response);
@@ -51,7 +50,6 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
                 $scope.getDataFromServer();
             }).error(function (response) {
                 alert(response);
-                // called asynchronously if an error occurs or server returns response with an error status.
             });
     }
 
@@ -62,14 +60,14 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
                 url: baseURL +  'Level/Three',
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                 data: {
-                    'levelThreeID': $scope.deleteLevel.levelThreeID,
-                    'levelTwoID': $scope.deleteLevel.levelTwoID,
-                    'listingName': '',
-                    'listingDescription': '',
-                    'versionID': 0,
-                    'bookName': '',
-                    'pageNumber': 0,
-                    'levelFour': $scope.deleteLevel.levelFour
+                    'levelThreeID': $scope.clientLevel.levelThreeID,
+                    'levelTwoID': $scope.clientLevel.levelTwoID,
+                    'listingName': $scope.clientLevel.listingName,
+                    'listingDescription': $scope.clientLevel.listingName,
+                    'versionID': $scope.clientLevel.versionID,
+                    'bookName': $scope.clientLevel.bookName,
+                    'pageNumber': $scope.clientLevel.pageNumber,
+                    'levelFour': $scope.clientLevel.levelFour
                 }
             }).success(function (response) {
                 var data = angular.fromJson(response);
@@ -77,7 +75,6 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
                 $scope.getDataFromServer();
             }).error(function (response) {
                 alert(response);
-                // called asynchronously if an error occurs or server returns response with an error status.
             });
     }
 
@@ -88,13 +85,13 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
             url: baseURL + 'Level/Four',
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
             data: {
-                'levelFourID': $scope.deleteLevel.levelFourID,
-                'levelThreeID': $scope.deleteLevel.levelThreeID,
-                'listingName': '',
-                'listingDescription': '',
-                'versionID': 0,
-                'bookName': '',
-                'pageNumber': 0
+                'levelFourID': $scope.clientLevel.levelFourID,
+                'levelThreeID': $scope.clientLevel.levelThreeID,
+                'listingName': $scope.clientLevel.listingName,
+                'listingDescription': $scope.clientLevel.listingName,
+                'versionID': $scope.clientLevel.versionID,
+                'bookName': $scope.clientLevel.bookName,
+                'pageNumber': $scope.clientLevel.pageNumber,
             }
         }).success(function (response) {
             var data = angular.fromJson(response);
@@ -102,7 +99,6 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
             $scope.getDataFromServer();
         }).error(function (response) {
             alert(response);
-            // called asynchronously if an error occurs or server returns response with an error status.
         });
     }
 
@@ -118,8 +114,8 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
 
     }
 
-    $scope.setDeleteLevel = function (inLevel) {
-        $scope.deleteLevel = angular.fromJson(inLevel);
+    $scope.setClientLevel = function (inLevel) {
+        $scope.clientLevel = angular.fromJson(inLevel);
     }
 
     $scope.getDataFromServer = function () {
