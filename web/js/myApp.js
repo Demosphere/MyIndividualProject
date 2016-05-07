@@ -2,10 +2,54 @@ var app = angular.module('myApp', []);
 
 app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
 
-    $scope.child = {};
+    $scope.clientLevel = {};
     var baseURL = 'http://localhost:8080/html/';
 
-    // These Functions are duplicated because I can't figure out how to get the "data" variable to be set to an onject.
+    $scope.sendLevelOne = function (method) {
+
+        if ($scope.children == "True") {
+            $http({
+                method: method,
+                url: baseURL + 'Level/One',
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                data: {
+                    'levelOneID': 0,
+                    'listingName': $scope.clientLevel.name,
+                    'listingDescription': '',
+                    'versionID': 0,
+                    'bookName': '',
+                    'pageNumber': 0,
+                    'levelTwo' : []
+                }
+            }).success(function (response) {
+                var data = angular.fromJson(response);
+                $scope.parsedData = data;
+            }).error(function (response) {
+                alert("Error: " + response);
+            });
+        } else {
+            $http({
+                method: method,
+                url: baseURL + 'Level/One',
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                data: {
+                    'levelOneID': 0,
+                    'listingName': $scope.clientLevel.name,
+                    'listingDescription': $scope.clientLevel.description,
+                    'versionID': 0,
+                    'bookName': $scope.clientLevel.bookName,
+                    'pageNumber': parseInt($scope.clientLevel.pageNumber),
+                    'levelTwo' : []
+                }
+            }).success(function (response) {
+                var data = angular.fromJson(response);
+                $scope.parsedData = data;
+            }).error(function (response) {
+                alert("Error: " + response);
+            });
+        }
+    }
+
     $scope.sendLevelTwo = function (method) {
         if ($scope.children == "True") {
             $http({
@@ -14,8 +58,8 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                 data: {
                     'levelTwoID': 0,
-                    'levelOneID': parseInt($scope.child.parent),
-                    'listingName': $scope.child.name,
+                    'levelOneID': parseInt($scope.clientLevel.parent),
+                    'listingName': $scope.clientLevel.name,
                     'listingDescription': '',
                     'versionID': 0,
                     'bookName': '',
@@ -35,12 +79,12 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                 data: {
                     'levelTwoID': 0,
-                    'levelOneID': parseInt($scope.child.parent),
-                    'listingName': $scope.child.name,
-                    'listingDescription': $scope.child.description,
+                    'levelOneID': parseInt($scope.clientLevel.parent),
+                    'listingName': $scope.clientLevel.name,
+                    'listingDescription': $scope.clientLevel.description,
                     'versionID': 0,
-                    'bookName': $scope.child.bookName,
-                    'pageNumber': parseInt($scope.child.pageNumber),
+                    'bookName': $scope.clientLevel.bookName,
+                    'pageNumber': parseInt($scope.clientLevel.pageNumber),
                     'levelThree': []
                 }
             }).success(function (response) {
@@ -62,8 +106,8 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                 data: {
                     'levelThreeID': 0,
-                    'levelTwoID': $scope.child.parent,
-                    'listingName': $scope.child.name,
+                    'levelTwoID': $scope.clientLevel.parent,
+                    'listingName': $scope.clientLevel.name,
                     'listingDescription': '',
                     'versionID': 0,
                     'bookName': '',
@@ -83,12 +127,12 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                 data: {
                     'levelThreeID': 0,
-                    'levelTwoID': $scope.child.parent,
-                    'listingName': $scope.child.name,
-                    'listingDescription': $scope.child.description,
+                    'levelTwoID': $scope.clientLevel.parent,
+                    'listingName': $scope.clientLevel.name,
+                    'listingDescription': $scope.clientLevel.description,
                     'versionID': 0,
-                    'bookName': $scope.child.bookName,
-                    'pageNumber': parseInt($scope.child.pageNumber),
+                    'bookName': $scope.clientLevel.bookName,
+                    'pageNumber': parseInt($scope.clientLevel.pageNumber),
                     'levelFour': []
                 }
             }).success(function (response) {
@@ -108,12 +152,12 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                 data: {
                     'levelFourID': 0,
-                    'levelThreeID': $scope.child.parent,
-                    'listingName': $scope.child.name,
-                    'listingDescription': $scope.child.description,
+                    'levelThreeID': $scope.clientLevel.parent,
+                    'listingName': $scope.clientLevel.name,
+                    'listingDescription': $scope.clientLevel.description,
                     'versionID': 0,
-                    'bookName': $scope.child.bookName,
-                    'pageNumber': parseInt($scope.child.pageNumber)
+                    'bookName': $scope.clientLevel.bookName,
+                    'pageNumber': parseInt($scope.clientLevel.pageNumber)
                 }
             }).success(function (response) {
                 var data = angular.fromJson(response);

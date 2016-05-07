@@ -6,9 +6,9 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
     $scope.deleteLevel = {};
 
     // These Functions are duplicated because I can't figure out how to get the "data" variable to be set to an onject.
-    $scope.sendLevelOne = function () {
+    $scope.sendLevelOne = function (method) {
             $http({
-                method: 'DELETE',
+                method: method,
                 url: baseURL + 'Level/One',
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                 data: {
@@ -30,9 +30,9 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
             });
     }
 
-    $scope.sendLevelTwo = function () {
+    $scope.sendLevelTwo = function (method) {
             $http({
-                method: 'DELETE',
+                method: method,
                 url: baseURL + 'Level/Two',
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                 data: {
@@ -56,9 +56,9 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
     }
 
     // These Functions are duplicated because I can't figure out how to get the "data" variable to be set to an onject.
-    $scope.sendLevelThree = function () {
+    $scope.sendLevelThree = function (method) {
             $http({
-                method: 'DELETE',
+                method: method,
                 url: baseURL +  'Level/Three',
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                 data: {
@@ -82,9 +82,9 @@ app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
     }
 
     // These Functions are duplicated because I can't figure out how to get the "data" variable to be set to an onject.
-    $scope.sendLevelFour = function () {
+    $scope.sendLevelFour = function (method) {
         $http({
-            method: 'DELETE',
+            method: method,
             url: baseURL + 'Level/Four',
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
             data: {
